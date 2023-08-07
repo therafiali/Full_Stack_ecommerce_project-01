@@ -16,8 +16,8 @@ const Navbar = () => {
   const [cartcount, setcartcount] = useState(0)
   return (
     <div>
-      <nav className="flex items-center justify-between py-2 sm:py-4 ">
-        <div className="flex-shrink-0">
+      <nav className="flex items-center justify-between py-2 sm:py-4 mb-10">
+        <div className="flex-shrink-0 ">
           {/* our Logo */}
           <Image
             className="py-4"
