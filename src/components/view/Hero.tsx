@@ -6,7 +6,7 @@ import { PiShoppingCartSimpleBold } from "react-icons/pi";
 const Hero = () => {
   const btnText = "Start \nShopping";
   return (
-    <section className="relative overflow-hidden  flex items-center justify-between">
+    <section className="relative overflow-hidden pt-16 flex items-center justify-between">
       <div className="flex-1 max-w-md space-y-5">
         {/* content */}
         <button className="bg-[#e1edff] text-blue-700 font-semibold text-base py-2 px-6 rounded-md">
@@ -24,10 +24,10 @@ const Hero = () => {
           {btnText}
         </button>
       </div>
-      <div className="flex flex-grow flex-shrink basis-[0%]">
-        <div className="bg-heropink overflow-y-visible w-[38rem] h-[38rem] rounded-[50%]">
+      <div className="flex flex-grow-0 flex-shrink basis-[0%]">
+        <div className="bg-heropink z-50 w-[38rem] h-[38rem] rounded-[50%]">
           <Image
-            className="absolute top-[-5%]"
+            className="absolute top-[3%] z-50 overflow-visible"
             src={hero}
             alt="Hero Image"
             width={680}
