@@ -6,8 +6,8 @@ import { PiShoppingCartSimpleBold } from "react-icons/pi";
 const Hero = () => {
   const btnText = "Start Shopping";
   return (
-    <section className="relative overflow-hidden pt-16 gap-x-10 flex items-center justify-between">
-      <div className="flex flex-col justify-center gap-10 max-w-md ">
+    <section className="relative overflow-hidden pt-8 md:pt-16 gap-x-10 flex items-center justify-between">
+      <div className="flex flex-col justify-center gap-10 lg:max-w-md ">
         {/* content */}
         <button className="bg-[#e1edff] text-[#0000ff] text-[15px] font-semibold flex items-center justify-center tracking-wide h-10 w-[7.5rem] rounded-md">
           Sale 70%
@@ -15,7 +15,7 @@ const Hero = () => {
         <h1 className="text-6xl font-bold text-heading">
           An Industrial Take on Streetwear
         </h1>
-        <p className="text-greypara max-w-xs">
+        <p className="text-greypara lg:max-w-xs">
           Anyone can beat you but no one can beat your outfit as long as you
           wear Dine outfits.
         </p>
@@ -23,7 +23,7 @@ const Hero = () => {
           <PiShoppingCartSimpleBold size={25} />
           {btnText}
         </button>
-        <div className="flex gap-x-4">
+        <div className="flex justify-between gap-x-4 ">
           <Image src={fetured1} alt="featured image" />
           <Image src={fetured2} alt="featured image" />
           <Image src={fetured3} alt="featured image" />
