@@ -4,12 +4,12 @@ import { fetured1, fetured2, fetured3, fetured4, hero } from "../assets";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 
 const Hero = () => {
-  const btnText = "Start \nShopping";
+  const btnText = "Start Shopping";
   return (
     <section className="relative overflow-hidden pt-16 gap-x-10 flex items-center justify-between">
       <div className="flex flex-col justify-center gap-10 max-w-md ">
         {/* content */}
-        <button className="bg-[#e1edff] text-blue-700 text-[15px] font-semibold flex items-center justify-center tracking-wide h-10 w-[7.5rem] rounded-md">
+        <button className="bg-[#e1edff] text-[#0000ff] text-[15px] font-semibold flex items-center justify-center tracking-wide h-10 w-[7.5rem] rounded-md">
           Sale 70%
         </button>
         <h1 className="text-6xl font-bold text-heading">
@@ -19,8 +19,8 @@ const Hero = () => {
           Anyone can beat you but no one can beat your outfit as long as you
           wear Dine outfits.
         </p>
-        <button className="flex items-center justify-center gap-x-2 bg-heading ring-2 ring-heading/70 text-white py-3 px-5 tracking-wide font-medium whitespace-pre">
-          <PiShoppingCartSimpleBold size={18} />
+        <button className="flex items-center justify-center gap-x-2 bg-heading ring-2 ring-heading/70 text-white py-3 px-5 tracking-wide font-medium  w-[35%]">
+          <PiShoppingCartSimpleBold size={25} />
           {btnText}
         </button>
         <div className="flex gap-x-4">
