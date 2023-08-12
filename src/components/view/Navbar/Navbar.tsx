@@ -20,7 +20,7 @@ const Navbar = () => {
         <div className="flex-shrink-0 ">
           {/* our Logo */}
           <Image
-            className="py-4"
+            className="mb-1 py-2"
             src={"/Logo.webp"}
             alt="Dine Market"
             width={150}
@@ -32,9 +32,9 @@ const Navbar = () => {
           {navbarArr.map((item: NavArrayTypes, i: number) => (
             <li
               key={i}
-              className="relative list-none text-lg tracking-wide scroll-m-20 leading-relaxed group "
+              className="relative list-none text-base tracking-wide scroll-m-20 leading-relaxed group "
             >
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-x-1">
                 <h3>{item.label}</h3>
                 <div className="group-hover:rotate-180 duration-300">
                   {item.isDropdown && <IoIosArrowDown />}
