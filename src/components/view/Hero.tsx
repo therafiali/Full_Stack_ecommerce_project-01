@@ -31,9 +31,9 @@ const Hero = () => {
         </div>
       </div>
       <div className="hidden lg:flex flex-grow-0 flex-shrink basis-[0%]">
-        <div className="bg-heropink z-50 w-[38rem] h-[38rem] rounded-[50%]">
+        <div className="bg-heropink  w-[38rem] h-[38rem] rounded-[50%]">
           <Image
-            className="absolute top-[3%] z-50 overflow-visible"
+            className="absolute top-[3%]  overflow-visible"
             src={hero}
             alt="Hero Image"
             width={680}

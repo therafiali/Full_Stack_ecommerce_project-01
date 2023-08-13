@@ -29,6 +29,7 @@ module.exports = {
         heading: "#212121",
         greypara: "#666",
         heropink: "#ffece3",
+        opacityDownColor:'#ffffffba'
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

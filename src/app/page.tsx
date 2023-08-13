@@ -1,10 +1,11 @@
 import Hero from "@/components/view/Hero";
-import Image from "next/image";
+import Promotions from "@/components/view/Promotions";
 
 export default function Home() {
   return (
     <main>
-      <Hero />
+      {/* <Hero /> */}
+      <Promotions />
     </main>
   );
 }

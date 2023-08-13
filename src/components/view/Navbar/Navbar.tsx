@@ -4,7 +4,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
 import { navbarArr, NavArrayTypes } from "@/components/utils/navbar-array";
 import Image from "next/image";
-import Link from "next/link";
 import { GrSearch } from "react-icons/gr";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { IoIosArrowDown } from "react-icons/io";
@@ -13,10 +12,10 @@ import Expand from "./Expand";
 
 const Navbar = () => {
   const [isNavOpen, setNav] = useState(false);
-  const [cartcount, setcartcount] = useState(0)
+  const [cartcount, setcartcount] = useState(0);
   return (
-    <div>
-      <nav className="flex items-center z-30  px-1 sm:px-2 justify-between py-2 sm:py-4 pb-10">
+    <div className="sticky top-0 z-50 bg-opacityDownColor backdrop-blur-lg">
+      <nav className="flex  items-center   px-1 sm:px-2 justify-between py-2 sm:py-4 pb-10  ">
         <div className="flex-shrink-0 ">
           {/* our Logo */}
           <Image
@@ -32,25 +31,29 @@ const Navbar = () => {
           {navbarArr.map((item: NavArrayTypes, i: number) => (
             <li
               key={i}
-              className="relative list-none text-base tracking-wide scroll-m-20 leading-relaxed group "
+              className="relative list-none text-base tracking-wide scroll-m-20 leading-relaxed group cursor-pointer "
             >
               <div className="flex items-center gap-x-1">
                 <h3>{item.label}</h3>
-                <div className="group-hover:rotate-180 duration-300">
-                  {item.isDropdown && <IoIosArrowDown />}
+                <div>
+                  {item.isDropdown && (
+                    <IoIosArrowDown className=" group-hover:rotate-180 duration-300" />
+                  )}
                 </div>
               </div>
               {item.isDropdown && (
                 <button className="absolute border   rounded-md shadow-xl w-auto  bg-gray-200 p-2 px-4 text-base tracking-wide text-center leading-relaxed scroll-m-20 text-gray-800 invisible group-hover:visible">
-                  <DropDown item={item} />
+                  <div className="">
+                    <DropDown item={item} />
+                  </div>
                 </button>
               )}
             </li>
           ))}
         </div>
-        <div className="border rounded-md px-2 hidden lg:flex items-center ">
+        <div className="border rounded-md px-2 bg-white hidden lg:flex items-center ">
           {/* search bar */}
-          <GrSearch size={15} />
+          <GrSearch className="" size={15} />
           <input
             className="text-sm w-80 pr-5 pl-1 py-1 focus:outline-none"
             type="text"
