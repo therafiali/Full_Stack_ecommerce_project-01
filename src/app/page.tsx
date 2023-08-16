@@ -4,7 +4,7 @@ import Promotions from "@/components/view/Promotions";
 export default function Home() {
   return (
     <main>
-      {/* <Hero /> */}
+      <Hero />
       <Promotions />
     </main>
   );

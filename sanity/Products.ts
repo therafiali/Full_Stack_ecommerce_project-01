@@ -1,8 +1,8 @@
 export default {
-  name: "Products",
+  name: "products",
   type: "document",
   title: "Products",
-  feilds: [
+  fields: [
     {
       name: "productName",
       type: "string",

@@ -4,7 +4,7 @@ import { event1, event2, event3 } from "../assets";
 
 const Promotions = () => {
   return (
-    <div className="mt-24 mb-96">
+    <div className="mt-24">
       <h3 className="text-xs font-bold tracking-widest text-center text-[#0062f5] ">
         PROMOTIONS
       </h3>
@@ -15,10 +15,10 @@ const Promotions = () => {
         <div className="flex flex-col sm:flex-row justify-evenly bg-[#d6d6d8] col-span-1 md:col-span-2 w-full ">
           {/* first box */}
 
-          <div className="mt-2 sm:mt-0 flex flex-col items-center sm:flex-col  justify-center">
+          <div className="mt-2 sm:mt-0 flex flex-col items-center sm:items-start sm:flex-col  justify-center ">
             <h3 className="text-2xl font-extrabold">GET UP TO</h3>
             <span className="text-3xl font-extrabold">60%</span>
-            <p className="text-lg text-gray-700 tracking-wider">
+            <p className="text-lg text-gray-700 tracking-wider px-2 sm:px-0">
               For the summer season
             </p>
           </div>
@@ -38,8 +38,8 @@ const Promotions = () => {
           </div>
 
           <div className="mx-auto">
-            <div className="w-64  ">
-              <Image width={1000} height={1000} alt="sweaters" src={event2} />
+            <div className="">
+              <Image alt="sweaters" src={event2} />
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@ const Promotions = () => {
           <h3 className="text-4xl font-bold text-center mt-10">GET 30% Off</h3>
           <p className="text-center mt-4">USE PROMO CODE</p>
           <div className="flex justify-center">
-            <button className="bg-[#474747] tracking-widest px-10 sm:px-16 py-2 rounded-md">
+            <button className="bg-[#474747] tracking-widest px-auto sm:px-16 py-2 rounded-md">
               DINEWEEKENDSALE
             </button>
           </div>
