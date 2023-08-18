@@ -10,7 +10,7 @@ export default {
     },
     {
       name: "slug",
-      type: "string",
+      type: "slug",
       title: "Slug",
       options: {
         source: "productName",
