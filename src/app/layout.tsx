@@ -3,6 +3,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import Navbar from "@/components/view/Navbar/Navbar";
+import Footer from "@/components/view/Footer";
+import Copyright from "@/components/view/Copyright";
 
 const inter = Sora({
   subsets: ["latin"],
@@ -23,9 +25,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Wrapper>
-          {/* <Navbar/> */}
+          <Navbar/>
           {children}
+          <Footer/>
         </Wrapper>
+      <Copyright/>
       </body>
     </html>
   );

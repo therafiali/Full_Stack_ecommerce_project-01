@@ -47,13 +47,13 @@ const ProductCarousel: FC<{ ProductData: Array<oneProductType> }> = ({
   let dataToItrate = ProductData.slice(0, 15);
 
   return (
-    <div className="space-y-4 px-6">
+    <div className="space-y-4 px-6 mt-24">
       <div className="text-center space-y-3">
         <h3 className="text-xs font-bold tracking-widest text-center text-[#0062f5] ">
-          PROMOTIONS
+          PRODUCTS
         </h3>
         <h3 className="text-center text-3xl font-bold tracking-wider">
-          Our Promotions Events
+          Our Products
         </h3>
       </div>
       <div

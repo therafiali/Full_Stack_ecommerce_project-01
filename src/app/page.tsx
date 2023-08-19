@@ -1,5 +1,9 @@
 import { responseType } from "@/components/utils/productDataAndTypes";
+import Hero from "@/components/view/Hero";
+import Jwellery from "@/components/view/Jwellery";
+import Newsletter from "@/components/view/Newsletter";
 import ProductCarousel from "@/components/view/ProductCarousel";
+import Promotions from "@/components/view/Promotions";
 
 async function fetchProductData() {
   try {
@@ -21,9 +25,12 @@ export default async function Home() {
   let { result }: responseType = await fetchProductData();
   return (
     <main>
-      {/* <Hero />
-      <Promotions /> */}
+      <Hero />
+      <Promotions />
       <ProductCarousel ProductData={result} />
+      <Jwellery/>
+      <Newsletter/>
+     
     </main>
   );
 }
