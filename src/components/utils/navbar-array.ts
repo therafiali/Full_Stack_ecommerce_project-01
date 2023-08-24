@@ -57,7 +57,7 @@ export const navbarArr: NavArrayTypes[] = [
   },
   {
     label: "All Products",
-    href: "/Products",
+    href: "/products",
     isDropdown: false,
   },
 ];

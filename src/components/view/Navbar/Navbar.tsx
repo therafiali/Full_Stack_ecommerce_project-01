@@ -37,7 +37,10 @@ const Navbar = () => {
               className="relative list-none text-base tracking-wide scroll-m-20 leading-relaxed group cursor-pointer "
             >
               <div className="flex items-center gap-x-1">
-                <h3>{item.label}</h3>
+                <Link href={item.href}>
+                  <h3>{item.label}</h3>
+                </Link>
+
                 <div>
                   {item.isDropdown && (
                     <IoIosArrowDown className=" group-hover:rotate-180 duration-300" />
