@@ -16,7 +16,6 @@ const Jwellery = () => {
     },
     {
       title: "Discount for Bulk Orders",
-      
     },
   ];
   return (
@@ -32,13 +31,12 @@ const Jwellery = () => {
       <div className="mt-12 grid-cols-1 gap-x-6 grid lg:grid-cols-2">
         {/* left */}
         <div className="grid grid-cols-1 gap-x-6  md:grid-cols-2 justify-center items-center relative">
-        <div className="max-w-sm tracking-widest absolute opacity-[.07] z-10 font-extrabold mx-auto text-[2.75rem] leading-loose sm:text-8xl  text-[#212121]">
-                Different from others 
-              </div>
+          <div className="max-w-sm tracking-widest absolute opacity-[.07] z-10 font-extrabold mx-auto text-[2.75rem] leading-loose sm:text-8xl  text-[#212121]">
+            Different from others
+          </div>
           {productDetail.map((item) => (
-            <div>
-             
-              <div className="z-20" key={item.title}>
+            <div key={item.title}>
+              <div className="z-20">
                 <h4 className=" font-bold text-center tracking-widest  py-4">
                   {item.title}
                 </h4>
