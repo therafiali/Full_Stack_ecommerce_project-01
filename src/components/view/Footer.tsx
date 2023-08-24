@@ -1,14 +1,20 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import logo from "/public/logo.webp";
+
 
 const Footer = () => {
   return (
     <footer className="mx-auto  flex flex-col md:flex-row pb-12 gap-x-12 mt-20 ">
       <div className="max-w-xs mr-20">
         <Link href={"/"}>
-          <Image src={logo} alt="logo" className="flex-shrink-0 h-6 w-32 " />
+        <Image
+            className="mb-1 py-2"
+            src={"/Logo.webp"}
+            alt="Dine Market"
+            width={150}
+            height={150}
+          />
         </Link>
         <p className="py-6  mt-5 text-gray-500 font-five leading-relaxed tracking-wider">
           Small, artisan label that offers a thoughtfully curated collection of

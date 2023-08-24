@@ -9,6 +9,7 @@ import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { IoIosArrowDown } from "react-icons/io";
 import DropDown from "./DropDown";
 import Expand from "./Expand";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isNavOpen, setNav] = useState(false);
@@ -18,13 +19,15 @@ const Navbar = () => {
       <nav className="flex  items-center   px-1 sm:px-2 justify-between py-2 sm:py-4 pb-10  ">
         <div className="flex-shrink-0 ">
           {/* our Logo */}
-          <Image
-            className="mb-1 py-2"
-            src={"/Logo.webp"}
-            alt="Dine Market"
-            width={150}
-            height={150}
-          />
+          <Link href={"/"}>
+            <Image
+              className="mb-1 py-2"
+              src={"/Logo.webp"}
+              alt="Dine Market"
+              width={150}
+              height={150}
+            />
+          </Link>
         </div>
         <div className="hidden lg:flex justify-between space-x-2 md:space-x-6">
           {/* label  */}
