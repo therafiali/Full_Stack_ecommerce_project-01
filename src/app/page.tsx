@@ -6,29 +6,29 @@ import Newsletter from "@/components/view/Newsletter";
 import ProductCarousel from "@/components/view/ProductCarousel";
 import Promotions from "@/components/view/Promotions";
 
-// async function fetchProductData() {
-//   try {
-//     const response = await fetch(`${BASE_PATH_FORAPI}/api/products`);
+async function fetchProductData() {
+  try {
+    const response = await fetch(`${BASE_PATH_FORAPI}/api/products`);
 
-//     if (!response.ok) {
-//       throw new Error("Failed to fetch data");
-//     }
+    if (!response.ok) {
+      throw new Error("Error fetching data at main page ");
+    }
 
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.error("Error fetching data:", error);
-//     return null; // Or handle the error case according to your needs
-//   }
-// }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data at main page :", error);
+    return null; // Or handle the error case according to your needs
+  }
+}
 
 export default async function Home() {
-  // let { result }: responseType = await fetchProductData();
+  let { result }: responseType = await fetchProductData();
   return (
     <main>
       <Hero />
       <Promotions />
-      {/* <ProductCarousel ProductData={result} /> */}
+      <ProductCarousel ProductData={result} />
       <Jwellery/>
       <Newsletter/>
      
