@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="bg-gray-300 py-2 px-2 rounded-xl">
             <Link
               target="_blank"
-              href={"https://www.linkedin.com/in/rafi-ali-3881a71bb"}
+              href={"https://www.linkedin.com/in/therafiali/"}
             >
               <svg
                 stroke="currentColor"
@@ -66,7 +66,7 @@ const Footer = () => {
           <div className="bg-gray-300 py-2 px-2 rounded-xl">
             <Link
               target="_blank"
-              href={"https://www.linkedin.com/in/rafi-ali-3881a71bb"}
+              href={"https://www.linkedin.com/in/therafiali/"}
             >
               <svg
                 stroke="currentColor"
