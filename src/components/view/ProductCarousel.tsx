@@ -44,7 +44,7 @@ const ProductCarousel: FC<{ ProductData: Array<oneProductType> }> = ({
     isDragging = true;
     initialX = e.touches[0].clientX;
   }
-  let dataToItrate = ProductData.slice(0, 15);
+  let dataToItrate = ProductData
 
   return (
     <div className="space-y-4 px-6 mt-24">
