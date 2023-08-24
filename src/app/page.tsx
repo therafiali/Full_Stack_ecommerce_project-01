@@ -31,11 +31,6 @@ export default async function Home() {
       <ProductCarousel ProductData={result} />
       <Jwellery />
       <Newsletter />
-      {/* <div>
-        {result.map((i: any, j) => (
-          <div key={j}>{i}</div>
-        ))}
-      </div> */}
     </main>
   );
 }
