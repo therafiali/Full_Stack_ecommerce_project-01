@@ -13,8 +13,14 @@ const fetchAllMaleData = async () => {
   }
 };
 
-const Male = async () => {
-  const productData = await fetchAllMaleData();
+const Male = async ({ params }: { params: { mtype: string } }) => {
+  let productData = await fetchAllMaleData();
+  if (params.mtype !== "Male") {
+    let sortCategories = productData.result.filter(
+      (item: any, i: number) => params.mtype === item.productTypes[0]
+    );
+    productData = { result: sortCategories };
+  }
   return (
     <div className="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16">
       {productData.result.map((item: any, i: number) => (
