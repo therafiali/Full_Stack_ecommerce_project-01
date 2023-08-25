@@ -10,10 +10,21 @@ import { IoIosArrowDown } from "react-icons/io";
 import DropDown from "./DropDown";
 import Expand from "./Expand";
 import Link from "next/link";
+import BASE_PATH_FORAPI from "@/components/shared/BaseUrl";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const router = useRouter();
+  const [searchquery, setSearchquery] = useState("");
   const [isNavOpen, setNav] = useState(false);
   const [cartcount, setcartcount] = useState(0);
+
+  const handleSearchData = (e: any) => {
+    if (e.key === "Enter" && e.keyCode === 13) {
+      router.push(`/search/${searchquery}`);
+    }
+  };
+
   return (
     <div className="sticky top-0 z-50 bg-opacityDownColor backdrop-blur-lg">
       <nav className="flex  items-center   px-1 sm:px-2 justify-between py-2 sm:py-4 pb-10  ">
@@ -59,10 +70,14 @@ const Navbar = () => {
         </div>
         <div className="border rounded-md px-2 bg-white hidden lg:flex items-center ">
           {/* search bar */}
-          <GrSearch className="" size={15} />
+          <Link href={`/search/${searchquery}`}>
+            <GrSearch className="" size={15} />
+          </Link>
           <input
             className="text-sm w-80 pr-5 pl-1 py-1 focus:outline-none"
             type="text"
+            onKeyDown={handleSearchData}
+            onChange={(e) => setSearchquery(e.target.value)}
             placeholder="   What you looking for"
           />
         </div>
