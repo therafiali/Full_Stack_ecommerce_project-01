@@ -12,7 +12,7 @@ const fetchAllProducts = async () => {
 
 const All_Products = async () => {
   const productData = await fetchAllProducts();
-  console.log("raff", productData.result);
+  // console.log("raff", productData.result);
   return (
     <div className="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16">
       {productData.result.map((item: any, i: number) => (

@@ -8,7 +8,7 @@ export interface NavArrayTypes {
 export const navbarArr: NavArrayTypes[] = [
   {
     label: "Female",
-    href: "/female",
+    href: "/female/female",
     isDropdown: true,
     DropDownData: [
       {
@@ -30,7 +30,7 @@ export const navbarArr: NavArrayTypes[] = [
   },
   {
     label: "Male",
-    href: "/male",
+    href: "/male/male",
     isDropdown: true,
     DropDownData: [
       {
