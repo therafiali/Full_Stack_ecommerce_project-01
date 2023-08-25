@@ -1,6 +1,5 @@
 import { NavArrayTypes } from "@/components/utils/navbar-array";
 import Link from "next/link";
-import { it } from "node:test";
 import { FC } from "react";
 
 const DropDown: FC<{ item: NavArrayTypes }> = ({ item }) => {
