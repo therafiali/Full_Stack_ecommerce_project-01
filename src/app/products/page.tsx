@@ -1,9 +1,5 @@
 import BASE_PATH_FORAPI from "@/components/shared/BaseUrl";
-import Card from "@/components/shared/Card";
-import {
-  oneProductType,
-  responseType,
-} from "@/components/utils/productDataAndTypes";
+import CardAll from "@/components/shared/CardAll";
 
 const fetchAllProducts = async () => {
   const res = await fetch(`${BASE_PATH_FORAPI}/api/products`);
@@ -18,9 +14,9 @@ const All_Products = async () => {
   const productData = await fetchAllProducts();
   console.log("raff", productData.result);
   return (
-    <div className="grid grid-cols-3">
+    <div className="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16">
       {productData.result.map((item: any, i: number) => (
-        <Card key={i} singleProductData={item} />
+        <CardAll key={i} singleProductData={item} />
       ))}
     </div>
   );
