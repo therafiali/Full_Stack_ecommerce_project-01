@@ -8,44 +8,54 @@ export interface NavArrayTypes {
 export const navbarArr: NavArrayTypes[] = [
   {
     label: "Female",
-    href: "/female/female",
+    href: "/female/Female",
     isDropdown: true,
     DropDownData: [
       {
-        label: "Shirts",
-        href: "/female/shirts",
+        label: "Sweater",
+        href: "/female/Sweater",
         isDropdown: false,
       },
       {
         label: "Pants",
-        href: "/female/pants",
+        href: "/female/Pants",
         isDropdown: false,
       },
       {
         label: "Dresses",
-        href: "/female/dresses",
+        href: "/female/Dress",
+        isDropdown: false,
+      },
+      {
+        label: "Jackets",
+        href: "/female/Jackets",
+        isDropdown: false,
+      },
+      {
+        label: "Shirts",
+        href: "/female/Shirts",
         isDropdown: false,
       },
     ],
   },
   {
     label: "Male",
-    href: "/male/male",
+    href: "/male/Male",
     isDropdown: true,
     DropDownData: [
       {
-        label: "Shirts",
-        href: "/male/shirts",
+        label: "Sweater",
+        href: "/male/Sweater",
         isDropdown: false,
       },
       {
-        label: "Pants",
-        href: "/male/pants",
+        label: "Jackets",
+        href: "/male/Jackets",
         isDropdown: false,
       },
       {
-        label: "Dresses",
-        href: "/male/dresses",
+        label: "All Male",
+        href: "/male/Male",
         isDropdown: false,
       },
     ],
