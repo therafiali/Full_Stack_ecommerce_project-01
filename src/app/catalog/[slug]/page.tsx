@@ -1,3 +1,4 @@
+import ProductDetail from "@/components/shared/ProductDetail";
 import { responseType } from "@/components/utils/productDataAndTypes";
 
 const fetchAllProductsData = async (slug: string) => {
@@ -12,7 +13,11 @@ const Catalog = async ({ params }: { params: { slug: string } }) => {
   let slug = params.slug;
   const getAllData: responseType = await fetchAllProductsData(slug);
 
-  return <div>{getAllData.result[0].productName}</div>;
+  return (
+    <div>
+      <ProductDetail />
+    </div>
+  );
 };
 
 export default Catalog;
