@@ -15,7 +15,7 @@ const Catalog = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <div>
-      <ProductDetail />
+      <ProductDetail item={getAllData.result[0]} />
     </div>
   );
 };
