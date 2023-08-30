@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { feature } from "../assets";
 import { FC, useState } from "react";
-import { oneProductType } from "../utils/productDataAndTypes";
+import { imagesType, oneProductType } from "../utils/productDataAndTypes";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../../../sanity/lib/client";
 import { BsCart2 } from "react-icons/bs";
@@ -11,7 +11,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
   const [quantity, setQuantity] = useState(1);
   const [imageForPreviewOfSelected, setImageForPreviewOfSelected] =
     useState<string>(item.image[0]._key);
-
+  console.log(imageForPreviewOfSelected, "keys");
   const builder: any = imageUrlBuilder(client);
 
   function urlFor(source: any) {
@@ -31,23 +31,28 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
     <div>
       <div className="grid grid-cols-10">
         <div className=" w-full col-span-2 flex justify-center">
-          <div>
-            <Image
-              alt={item.slug}
-              src={urlFor(item.image[0]).width(1000).height(1000).url()}
-              width={100}
-              height={100}
-            />
+          <div className="space-y-5">
+            {item.image.map((items: imagesType, i: number) => (
+              <Image
+                key={i}
+                alt={item.slug}
+                onClick={() => setImageForPreviewOfSelected(items._key)}
+                src={urlFor(items).width(1000).height(1000).url()}
+                width={100}
+                height={100}
+              />
+            ))}
           </div>
         </div>
         <div className="col-span-4">
           <div>
-            <Image
-              alt={item.slug}
-              src={urlFor(item.image[0]).width(1000).height(1000).url()}
-              width={500}
-              height={500}
-            />
+          {item.image.map((subItem: imagesType, index: number) => {
+              if (subItem._key === imageForPreviewOfSelected) {
+                return (
+                  <Image key={index} width={1000} height={1000} alt={subItem.alt} src={urlFor(subItem).width(1000).height(1000).url()} />
+                )
+              }
+            })}
           </div>
         </div>
         <div className="col-span-4">
