@@ -1,17 +1,20 @@
 "use client";
 import Image from "next/image";
-import { feature } from "../assets";
 import { FC, useState } from "react";
 import { imagesType, oneProductType } from "../utils/productDataAndTypes";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../../../sanity/lib/client";
-import { BsCart2 } from "react-icons/bs";
+
+import { useDispatch, useSelector } from "react-redux";
+import add from "@/Store/cartSlice";
+import AddToCart from "./AddToCart";
 
 const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
+  const dispatch = useDispatch();
+  const cartArray = useSelector((state: any) => state.cart);
   const [quantity, setQuantity] = useState(1);
   const [imageForPreviewOfSelected, setImageForPreviewOfSelected] =
     useState<string>(item.image[0]._key);
-  console.log(imageForPreviewOfSelected, "keys");
   const builder: any = imageUrlBuilder(client);
 
   function urlFor(source: any) {
@@ -46,11 +49,17 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
         </div>
         <div className="col-span-4">
           <div>
-          {item.image.map((subItem: imagesType, index: number) => {
+            {item.image.map((subItem: imagesType, index: number) => {
               if (subItem._key === imageForPreviewOfSelected) {
                 return (
-                  <Image key={index} width={1000} height={1000} alt={subItem.alt} src={urlFor(subItem).width(1000).height(1000).url()} />
-                )
+                  <Image
+                    key={index}
+                    width={1000}
+                    height={1000}
+                    alt={subItem.alt}
+                    src={urlFor(subItem).width(1000).height(1000).url()}
+                  />
+                );
               }
             })}
           </div>
@@ -95,13 +104,14 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
               </div>
             </div>
             <div className="flex gap-x-8 items-center">
-              <button
-                // onClick={() => handleAddToCart()}
+              <AddToCart product={item} />
+              {/* <button
+                
                 className="flex items-center text-white bg-gray-900 border border-gray-500 px-4 py-2"
               >
-                <BsCart2 />
-                &nbsp; &nbsp; Add to Cart
-              </button>
+              <BsCart2 />
+              &nbsp; &nbsp; Add to Cart
+              </button> */}
               <p className="text-2xl font-semibold">
                 ${item.price}
                 {".00"}
