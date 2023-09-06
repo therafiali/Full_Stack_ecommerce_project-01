@@ -12,12 +12,15 @@ import Expand from "./Expand";
 import Link from "next/link";
 import BASE_PATH_FORAPI from "@/components/shared/BaseUrl";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import { RootState } from "@/Store/store";
 
 const Navbar = () => {
+  const cartValue = useSelector((state: RootState) => state.cart.totalQuantity);
   const router = useRouter();
   const [searchquery, setSearchquery] = useState("");
   const [isNavOpen, setNav] = useState(false);
-  const [cartcount, setcartcount] = useState(0);
+ 
 
   const handleSearchData = (e: any) => {
     if (e.key === "Enter" && e.keyCode === 13) {
@@ -83,10 +86,12 @@ const Navbar = () => {
         </div>
         <div className="relative bg-gray-100 rounded-full w-12 h-12 hidden lg:flex  items-center justify-center">
           {/* cart icon */}
+          <Link href={'/cart'}>
           <PiShoppingCartSimpleBold size={25} />
           <div className="absolute top-0 right-0 flex items-center justify-center  bg-red-500 rounded-full w-5 h-5 text-white">
-            {cartcount}
+            {cartValue}
           </div>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           {/* menu for mobile */}

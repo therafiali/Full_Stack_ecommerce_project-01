@@ -1,8 +1,12 @@
-import React from 'react'
+import CartList from "@/components/view/CartList"
+
 
 const Cart = () => {
+  
   return (
-    <div>Cart</div>
+    <div>Cart
+      <CartList/>
+    </div>
   )
 }
 

@@ -1,9 +1,10 @@
 "use client";
-import { store } from '@/Store/store';
 import { Provider } from "react-redux";
+import { store } from "@/Store/store"
 
-function Providers({ children }: { children: React.ReactNode }) {
-  return <Provider store={store}>{children}</Provider>;
-}
-
+const Providers = ({ children }: { children: React.ReactNode }) => {
+  return <Provider store={store}>{children}
+  {/* <Toaster position='top-right' reverseOrder={true}/> */}
+  </Provider>;
+};
 export default Providers;

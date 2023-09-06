@@ -6,6 +6,7 @@ import Jwellery from "@/components/view/Jwellery";
 import Newsletter from "@/components/view/Newsletter";
 import ProductCarousel from "@/components/view/ProductCarousel";
 import Promotions from "@/components/view/Promotions";
+import { useSelector } from "react-redux";
 
 async function fetchProductData() {
   try {
@@ -25,6 +26,9 @@ async function fetchProductData() {
 
 export default async function Home() {
   let { result }: responseType = await fetchProductData();
+  // const cartArray = useSelector((state: any) => state.cart);
+
+  // console.log(cartArray, "homepage");
   return (
     <main>
       {/* <Hero />

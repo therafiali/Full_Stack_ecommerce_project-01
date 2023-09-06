@@ -25,14 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Wrapper>
-          <Providers>
+        <Providers>
+          <Wrapper>
             <Navbar />
             {children}
-          </Providers>
-          <Footer />
-        </Wrapper>
-        <Copyright />
+            <Footer />
+          </Wrapper>
+          <Copyright />
+        </Providers>
       </body>
     </html>
   );

@@ -1,31 +1,21 @@
 "use client";
-import { add } from "@/Store/cartSlice";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { BsCart2 } from "react-icons/bs";
 
-let dumobj = [
-  {
-    name: "rafi",
-    age: "22",
-    nick: "Rafay",
-  },
-];
+import { cartActions } from "@/Store/cartSlice";
+import { useDispatch } from "react-redux";
 
-const AddToCart = ({ product }: { product: any }) => {
+const AddToCart = ({subitem}:{subitem:any}) => {
   const dispatch = useDispatch();
-  const cartArray = useSelector((state: any) => state.cart);
-
-  console.log(cartArray, "cart");
+  const addItem = () => {
+    dispatch(cartActions.addToCart({ item:subitem }));
+    // toast.success('Product Added')
+  };
   return (
-    <div
-      className="flex items-center text-white bg-gray-900 border border-gray-500 px-4 py-2"
-      onClick={() => dispatch(add(product))}
+    <button
+      onClick={addItem}
+      className="mt-4 w-full mb-4 px-2 h-12 md:px-4 md:py-4 bg-black text-white hover:bg-black  text-base rounded"
     >
-      {" "}
-      <BsCart2 />
-      &nbsp; &nbsp; Add to Cart
-    </div>
+      Add to Cart
+    </button>
   );
 };
 
