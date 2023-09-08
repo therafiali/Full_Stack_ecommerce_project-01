@@ -16,7 +16,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/Store/store";
 
 const Navbar = () => {
-  const cartValue = useSelector((state: RootState) => state.cart.totalQuantity);
+  const cartArray = useSelector((state: RootState) => state.cart);
+  // console.log(cartValue,'nav')
   const router = useRouter();
   const [searchquery, setSearchquery] = useState("");
   const [isNavOpen, setNav] = useState(false);
@@ -89,7 +90,7 @@ const Navbar = () => {
           <Link href={'/cart'}>
           <PiShoppingCartSimpleBold size={25} />
           <div className="absolute top-0 right-0 flex items-center justify-center  bg-red-500 rounded-full w-5 h-5 text-white">
-            {cartValue}
+            {cartArray.totalQuantity}
           </div>
           </Link>
         </div>

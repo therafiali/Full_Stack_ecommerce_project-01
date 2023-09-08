@@ -6,14 +6,14 @@ import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../../../sanity/lib/client";
 
 import { useDispatch, useSelector } from "react-redux";
-import add, { addToCart } from "@/Store/cartSlice";
+import add, {addToCart, removeFromCart } from "@/Store/cartSlice";
 import AddToCart from "./AddToCart";
 import CartList from "../view/CartList";
 
 const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
   const dispatch = useDispatch();
-  const cartArray = useSelector((state: any) => state.cart);
-  // console.log(cartArray,'carrt')
+  const cartArray = useSelector((state:any)=> state.cart)
+  console.log(cartArray, "carrt");
   const [quantity, setQuantity] = useState(1);
   const [imageForPreviewOfSelected, setImageForPreviewOfSelected] =
     useState<string>(item.image[0]._key);
@@ -106,10 +106,25 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
               </div>
             </div>
             <div className="flex gap-x-8 items-center">
-              <button onClick={() => dispatch(addToCart({name:'rafi',qty:1,category:'male'}))}>
-                
+              {/* <button onClick={() => dispatch(addToCart({name:'rafi',qty:1,category:'male'}))}>add to cart </button> */}
+              <button
+                onClick={() =>
+                  dispatch(
+                    addToCart({
+                      productId:item._id,
+                      productName: item.productName,
+                      category: item.productTypes[0],
+                      image: item.image,
+                      price: item.price,
+                      qty: quantity,
+                    })
+                  )
+                }
+              >
                 add to cart
               </button>
+
+              <button onClick={()=>dispatch(removeFromCart(item._id))} >delete cart</button>
               {/* <AddToCart subitem={item}/> */}
               {/* <button
                 

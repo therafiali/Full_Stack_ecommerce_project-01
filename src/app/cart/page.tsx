@@ -4,7 +4,7 @@ import CartList from "@/components/view/CartList"
 const Cart = () => {
   
   return (
-    <div>Cart
+    <div>
       <CartList/>
     </div>
   )
