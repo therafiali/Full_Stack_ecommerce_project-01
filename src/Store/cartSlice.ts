@@ -12,11 +12,13 @@ export interface CartItem {
 export interface CartState {
   items: CartItem[];
   totalQuantity: number;
+  totalAmount: number;
 }
 
 const initialState: CartState = {
   items: [],
   totalQuantity: 0,
+  totalAmount: 0, // Initialize totalAmount to 0
 };
 
 export const cartSlice = createSlice({
@@ -26,7 +28,7 @@ export const cartSlice = createSlice({
     addToCart: (state, action: PayloadAction<CartItem>) => {
       const { productName, category, qty, productId, image, price } = action.payload;
       const existingItemIndex = state.items.findIndex((item) => item.productId === productId);
-
+    
       if (existingItemIndex !== -1) {
         // Item already exists in the cart, increase quantity
         state.items[existingItemIndex].qty += qty;
@@ -41,10 +43,14 @@ export const cartSlice = createSlice({
           price,
         });
       }
-
+    
       // Update total quantity
       state.totalQuantity += qty;
+    
+      // Calculate total amount for all items in the cart
+      state.totalAmount = state.items.reduce((total, item) => total + item.price * item.qty, 0);
     },
+    
     removeFromCart: (state, action: PayloadAction<string>) => {
       const productIdToRemove = action.payload;
       const itemIndex = state.items.findIndex((item) => item.productId === productIdToRemove);
@@ -53,11 +59,16 @@ export const cartSlice = createSlice({
         // Decrement the total quantity and remove the item
         state.totalQuantity -= state.items[itemIndex].qty;
         state.items.splice(itemIndex, 1);
+
+        // Recalculate the total amount
+        state.totalAmount = state.items.reduce((total, item) => total + item.price * item.qty, 0);
       }
     },
+    
     clearCart: (state) => {
       state.items = [];
       state.totalQuantity = 0;
+      state.totalAmount = 0; // Clear the totalAmount when clearing the cart
     },
   },
 });

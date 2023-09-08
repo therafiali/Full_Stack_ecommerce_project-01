@@ -7,22 +7,15 @@ import { useSelector } from "react-redux";
 import { client } from "../../../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 
-
-
 const CartComp = () => {
-const cartArray = useSelector((state:any) => state.cart)
-console.log(cartArray.items,'cartlist')
-const builder: any = imageUrlBuilder(client);
+  const cartArray = useSelector((state: any) => state.cart);
+  // console.log(cartArray.items,'cartlist')
+  const builder: any = imageUrlBuilder(client);
 
   function urlFor(source: any) {
     return builder.image(source);
   }
-return (
-
-  // <div>
-  //   gg
-  // </div>
-  
+  return (
     <div>
       <div className="py-6">
         {/* heading */}
@@ -36,14 +29,14 @@ return (
               <div className="flex gap-5" key={index}>
                 <div className="w-40">
                   {item.image.map((items: any, i: number) => (
-              <Image
-                key={i}
-                alt={item.category}
-                src={urlFor(items).width(1000).height(1000).url()}
-                width={1000}
-                height={1000}
-              />
-            ))}
+                    <Image
+                      key={i}
+                      alt={item.category}
+                      src={urlFor(items).width(1000).height(1000).url()}
+                      width={1000}
+                      height={1000}
+                    />
+                  ))}
                 </div>
                 <div>
                   {/* products detail */}
@@ -56,9 +49,7 @@ return (
                         <RiDeleteBin6Line size={28} />
                       </div>
                     </div>
-                    <p className="text-gray-400 font-medium">
-                      {item.category}
-                    </p>
+                    <p className="text-gray-400 font-medium">{item.category}</p>
                     <h3 className="text-sm md:text-base">
                       Delivery Estimation
                     </h3>
@@ -93,11 +84,13 @@ return (
             <h6 className="font-semibold text-xl">Order Summary</h6>
             <div className="flex justify-between">
               <p className="text-lg font-light">Quantity:</p>
-              <p className="text-lg font-light">{cartArray.totalQuantity} Product</p>
+              <p className="text-lg font-light">
+                {cartArray.totalQuantity} Product
+              </p>
             </div>
             <div className="flex justify-between">
               <p className="text-lg font-light">Subtotal:</p>
-              <p>{}$56</p>
+              <p>${cartArray.totalAmount}</p>
             </div>
             <button className="text-white bg-gray-900 border border-gray-500 px-4 py-2 w-full">
               Proceed To CheckOut

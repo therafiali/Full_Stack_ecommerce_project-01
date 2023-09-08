@@ -13,7 +13,7 @@ import CartList from "../view/CartList";
 const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
   const dispatch = useDispatch();
   const cartArray = useSelector((state:any)=> state.cart)
-  console.log(cartArray, "carrt");
+  // console.log(cartArray, "carrt");
   const [quantity, setQuantity] = useState(1);
   const [imageForPreviewOfSelected, setImageForPreviewOfSelected] =
     useState<string>(item.image[0]._key);
@@ -181,7 +181,6 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
           </div>
         </div>
       </div>
-      <CartList/>
     </div>
   );
 };
