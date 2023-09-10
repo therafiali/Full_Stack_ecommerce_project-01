@@ -26,16 +26,14 @@ async function fetchProductData() {
 
 export default async function Home() {
   let { result }: responseType = await fetchProductData();
-  // const cartArray = useSelector((state: any) => state.cart);
 
-  // console.log(cartArray, "homepage");
   return (
     <main>
-      {/* <Hero />
+      <Hero />
       <Promotions />
       <ProductCarousel ProductData={result} />
       <Jwellery />
-      <Newsletter /> */}
+      <Newsletter />
     </main>
   );
 }

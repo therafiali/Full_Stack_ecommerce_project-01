@@ -7,22 +7,15 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'lga': "1092px",
-      'sm': '640px',
-      // => @media (min-width: 640px) { ... }
-
-      'md': '768px',
-      // => @media (min-width: 768px) { ... }
-      'lgb': '1000px',
-
-      'lg': '1024px',
-      // => @media (min-width: 1024px) { ... }
-      'xla': '1128px',
-      'xl': '1280px',
-      // => @media (min-width: 1280px) { ... }
-
-      '2xl': '1536px',
-      // => @media (min-width: 1536px) { ... }
+      'zero':"370px",  //for very small devices
+      'one':'455px',// for normal size mobile screen
+      'med':'558px', //for big mobile screen
+      'sm':	'640px'	,
+      'md':	'768px'	,
+      'lg':	'1024px',
+      'llg':'1211px',	
+      'xl':	'1280px',	
+      '2xl':'1536px',	
     },
     extend: {
       colors: {

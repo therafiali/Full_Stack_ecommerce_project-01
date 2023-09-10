@@ -27,11 +27,11 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
       const { productName, category, qty, productId, image, price } = action.payload;
-      const existingItemIndex = state.items.findIndex((item) => item.productId === productId);
+      const existingItemIndex = state.items.findIndex((item) => item.productId === productId); //find cart item // o 
     
-      if (existingItemIndex !== -1) {
+      if (existingItemIndex !== -1) {  // if  value in item means except -1
         // Item already exists in the cart, increase quantity
-        state.items[existingItemIndex].qty += qty;
+        state.items[existingItemIndex].qty += qty;   // 0 == id_1  id_1.qty + 1
       } else {
         // Item doesn't exist in the cart, add it
         state.items.push({
@@ -48,7 +48,7 @@ export const cartSlice = createSlice({
       state.totalQuantity += qty;
     
       // Calculate total amount for all items in the cart
-      state.totalAmount = state.items.reduce((total, item) => total + item.price * item.qty, 0);
+      state.totalAmount = state.items.reduce((total, item) => total + item.price * item.qty, 0);  // 10 * 2 =20
     },
     
     removeFromCart: (state, action: PayloadAction<string>) => {

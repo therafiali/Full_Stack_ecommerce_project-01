@@ -19,7 +19,7 @@ const Jwellery = () => {
     },
   ];
   return (
-    <section className="mt-36  mx-auto pb-28 bg-[#fbfcff] ">
+    <section className="mt-12  mx-auto  bg-[#fbfcff] med:mt-24">
       <div className="flex justify-center lg:justify-end ">
         <h2 className="text-3xl text-center md:text-5xl leading-tight max-w-xl md:text-left font-bold tracking-wider ">
           Unique and Authentic Vintage Designer Jewellery
@@ -28,10 +28,10 @@ const Jwellery = () => {
 
       {/* Start here */}
 
-      <div className="mt-12 grid-cols-1 gap-x-6 grid lg:grid-cols-2">
+      <div className="mt-12 grid-cols-1 gap-x-6 grid llg:grid-cols-2">
         {/* left */}
-        <div className="grid grid-cols-1 gap-x-6  md:grid-cols-2 justify-center items-center relative">
-          <div className="max-w-sm tracking-widest absolute opacity-[.07] z-10 font-extrabold mx-auto text-[2.75rem] leading-loose sm:text-8xl  text-[#212121]">
+        <div className="grid grid-cols-1 gap-x-6  zero:grid-cols-2 justify-center items-center relative">
+          <div className="max-w-sm tracking-widest absolute opacity-[.07] z-10 font-extrabold mx-auto text-[2.75rem] leading-loose sm:text-8xl zero:p-10  text-[#212121]">
             Different from others
           </div>
           {productDetail.map((item) => (
@@ -47,7 +47,7 @@ const Jwellery = () => {
             </div>
           ))}
         </div>
-        <div className="flex flex-col gap-5 lg:mt-0 mt-10 mx-auto items-center  md:flex-row ">
+        <div className="flex flex-col gap-5 llg:mt-0 mt-10 mx-auto items-center  sm:flex-row ">
           <div className=" flex-shrink-0 ">
             <Image
               alt="feature"
@@ -67,7 +67,7 @@ const Jwellery = () => {
             </p>
             <div className="text-center">
               <Link href={"/products"}>
-                <button className="mt-8   tracking-widest bg-[#212121] text-white text-sm w-3/4 lg:w-28 font-bold lg:py-7 border-black border-2 shadow-inner hover:bg-[#212121]">
+                <button className="mt-8 p-3 text-lg   zero:p-5 zero:text-lg  tracking-widest bg-[#212121] ring-2 ring-heading/70 text-white  w-3/4 llg:w-2/4 font-bold llg:py-2 border-black border-2 shadow-inner hover:bg-[#212121] llg:text-sm">
                   See All Products
                 </button>
               </Link>

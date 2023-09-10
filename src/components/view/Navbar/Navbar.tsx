@@ -30,8 +30,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky top-0 z-50 bg-opacityDownColor backdrop-blur-lg">
-      <nav className="flex  items-center   px-1 sm:px-2 justify-between py-2 sm:py-4 pb-10  ">
+    <div className="sticky  top-0 z-50 bg-opacityDownColor backdrop-blur-lg mx-auto max-w-screen-xl px-3 sm:px-10 zero:px-0 med:px-4">
+      <nav className="flex  items-center zero:px-3  px-1  sm:px-2 justify-between py-2 sm:py-4 pb-10  ">
         <div className="flex-shrink-0 ">
           {/* our Logo */}
           <Link href={"/"}>
@@ -85,7 +85,7 @@ const Navbar = () => {
             placeholder="   What you looking for"
           />
         </div>
-        <div className="relative bg-gray-100 rounded-full w-12 h-12 hidden lg:flex  items-center justify-center">
+        <div className="relative bg-gray-300 hover:scale-105 rounded-full w-12 h-12 hidden lg:flex  items-center justify-center">
           {/* cart icon */}
           <Link href={'/cart'}>
           <PiShoppingCartSimpleBold size={25} />

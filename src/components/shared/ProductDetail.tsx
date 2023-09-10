@@ -13,7 +13,7 @@ import CartList from "../view/CartList";
 const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
   const dispatch = useDispatch();
   const cartArray = useSelector((state:any)=> state.cart)
-  // console.log(cartArray, "carrt");
+  // console.log(item, "carrt");
   const [quantity, setQuantity] = useState(1);
   const [imageForPreviewOfSelected, setImageForPreviewOfSelected] =
     useState<string>(item.image[0]._key);
@@ -34,8 +34,8 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
 
   return (
     <div>
-      <div className="grid grid-cols-10">
-        <div className=" w-full col-span-2 flex justify-center">
+      <div className="lg:mt-10 grid grid-cols-8 lg:grid-cols-10 gap-x-2 lg:gap-x-0">
+        <div className=" w-full col-span-2 flex justify-center ">
           <div className="space-y-5">
             {item.image.map((items: imagesType, i: number) => (
               <Image
@@ -49,7 +49,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
             ))}
           </div>
         </div>
-        <div className="col-span-4">
+        <div className="col-span-6 lg:col-span-4 ">
           <div>
             {item.image.map((subItem: imagesType, index: number) => {
               if (subItem._key === imageForPreviewOfSelected) {
@@ -66,9 +66,9 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
             })}
           </div>
         </div>
-        <div className="col-span-4">
-          <div className="p-6 space-y-8">
-            <div>
+        <div className="col-span-8 lg:col-span-4">
+          <div className="p-6 lg:space-y-8 ">
+            <div className="">
               <h1 className="text-3xl text-gray-700">{item.productName}</h1>
               <p className="text-pink-600 text-xl font-medium">
                 {item.productTypes[1]}
@@ -80,16 +80,16 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
                 {item.size.map((subItem: string, index: number) => (
                   <div
                     key={index}
-                    className="hover:shadow-xl font-semibold cursor-pointer rounded-full bg-gray-100 w-12 h-12 flex justify-center items-center"
+                    className="hover:shadow-xl font-semibold cursor-pointer rounded-full bg-gray-300 h-6 w-6 text-xs p-1 lg:w-12 lg:h-12 flex justify-center items-center"
                   >
                     {subItem}
                   </div>
                 ))}
               </div>
             </div>
-            <div className="flex space-x-7">
+            <div className="flex flex-col lg:flex-row space-x-7">
               <p className="font-semibold text-xl text-gray-800">Quantity:</p>
-              <div className="flex gap-2 items-center text-lg">
+              <div className="flex  gap-2 items-center text-lg">
                 <div
                   onClick={decrementTheQuantity}
                   className="select-none cursor-pointer flex justify-center items-center w-9 h-9 rounded-full bg-gray-200"
@@ -105,7 +105,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
                 </div>
               </div>
             </div>
-            <div className="flex gap-x-8 items-center">
+            <div className="flex  flex-col lg:flex-row gap-x-8 items-center">
               {/* <button onClick={() => dispatch(addToCart({name:'rafi',qty:1,category:'male'}))}>add to cart </button> */}
               <button
                 onClick={() =>
@@ -133,10 +133,13 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
               <BsCart2 />
               &nbsp; &nbsp; Add to Cart
               </button> */}
+              <div>
+
               <p className="text-2xl font-semibold">
                 ${item.price}
                 {".00"}
               </p>
+              </div>
             </div>
           </div>
         </div>
@@ -181,6 +184,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
           </div>
         </div>
       </div>
+      <CartList/>
     </div>
   );
 };

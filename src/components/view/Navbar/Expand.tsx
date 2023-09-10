@@ -36,7 +36,7 @@ const Expand: FC<{ item: NavArrayTypes }> = ({ item }) => {
         {subitemopen &&
           item.DropDownData?.map((subitem: NavArrayTypes, i: number) => (
             <Link key={i}
-              className="flex items-center justify-center gap-x-1 bg-gray-200 text-gray-800 shadow-xl rounded-sm py-1.5 duration-300"
+              className="flex items-center justify-center gap-x-1 bg-gray-200 text-gray-800 shadow-xl rounded-sm py-1.5 duration-300 border-b-2 border-black"
               href={subitem.href}
             >
               {subitem.label}{" "}

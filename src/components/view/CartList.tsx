@@ -8,6 +8,7 @@ import { client } from "../../../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 
 const CartComp = () => {
+  const [quantity, setQuantity] = useState<any>('');
   const cartArray = useSelector((state: any) => state.cart);
   // console.log(cartArray.items,'cartlist')
   const builder: any = imageUrlBuilder(client);
@@ -15,19 +16,31 @@ const CartComp = () => {
   function urlFor(source: any) {
     return builder.image(source);
   }
+  function incrementTheQuantity() {
+    setQuantity(+quantity + 1);
+    console.log('increment',quantity)
+  }
+
+  function decrementTheQuantity() {
+    console.log('decrement')
+    if (quantity !== 0) {
+      setQuantity(quantity - 1);
+    }
+  }
+  
   return (
-    <div>
+    <div className="mx-auto">
       <div className="py-6">
         {/* heading */}
         <h1 className="text-2xl font-semibold text-gray-900">Shopping Cart</h1>
       </div>
-      <div className="flex justify-between flex-wrap">
+      <div className="flex flex-col lg:flex-row lg:justify-between ">
         {/* products data show */}
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col basis-3/4 justify-center sm:justify-between gap-5 w-full ">
           {cartArray &&
             cartArray.items.map((item: any, index: number) => (
-              <div className="flex gap-5" key={index}>
-                <div className="w-40">
+              <div className="flex flex-col w-full justify-center sm:justify-start items-center sm:flex-row gap-5  " key={index}>
+                <div className="w-40 basis-1/4">
                   {item.image.map((items: any, i: number) => (
                     <Image
                       key={i}
@@ -38,11 +51,11 @@ const CartComp = () => {
                     />
                   ))}
                 </div>
-                <div>
+                <div className="basis-3/4">
                   {/* products detail */}
-                  <div className="space-y-1 md:space-y-3 w-full">
-                    <div className="flex justify-between">
-                      <h2 className="md:text-2xl font-light text-gray-700">
+                  <div className="space-y-1 md:space-y-3 w-full ">
+                    <div className="flex  w-full ">
+                      <h2 className="md:text-2xl font-light text-gray-700 w-full ">
                         {item.productName}
                       </h2>
                       <div className="cursor-pointer">
@@ -53,7 +66,7 @@ const CartComp = () => {
                     <h3 className="text-sm md:text-base">
                       Delivery Estimation
                     </h3>
-                    <h4 className="text-orange-400 font-semibold md:text-xl">
+                    <h4 className=" font-semibold md:text-xl">
                       5 Working Days
                     </h4>
                     <div className="flex justify-between">
@@ -61,11 +74,11 @@ const CartComp = () => {
                         ${item.price}
                       </div>
                       <div className="flex gap-2">
-                        <button className="select-none cursor-pointer flex justify-center items-center w-8 h-8 rounded-full bg-gray-200">
+                        <button className="select-none cursor-pointer flex justify-center items-center w-9 h-9 rounded-full bg-gray-200"  onClick={incrementTheQuantity}>
                           -
                         </button>
                         <p>{item.qty}</p>
-                        <button className="border select-none cursor-pointer flex justify-center items-center w-8 h-8 rounded-full  border-gray-800">
+                        <button  onClick={incrementTheQuantity} className="select-none cursor-pointer flex justify-center items-center w-9 h-9 rounded-full border border-gray-800">
                           +
                         </button>
                       </div>
@@ -80,7 +93,7 @@ const CartComp = () => {
 
         <div>
           {/* subtotal */}
-          <div className="basis-1/4 space-y-6 px-6">
+          <div className="basis-1/4 space-y-6 p-2 zero:px-6 mt-12 lg:mt-0 rounded-md bg-slate-100">
             <h6 className="font-semibold text-xl">Order Summary</h6>
             <div className="flex justify-between">
               <p className="text-lg font-light">Quantity:</p>

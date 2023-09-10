@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="mx-auto  flex flex-col md:flex-row pb-12 gap-x-12 mt-20 ">
+    <footer className="mx-auto mt-12 flex flex-col  md:flex-row pb-8 gap-x-12 med:mt-24 ">
       <div className="max-w-xs mr-20">
         <Link href={"/"}>
         <Image
@@ -16,7 +16,7 @@ const Footer = () => {
             height={150}
           />
         </Link>
-        <p className="py-6  mt-5 text-gray-500 font-five leading-relaxed tracking-wider">
+        <p className="py-6   zero:mt-5 text-gray-500 font-five leading-relaxed tracking-wider">
           Small, artisan label that offers a thoughtfully curated collection of
           high quality everyday essentials made.
         </p>
