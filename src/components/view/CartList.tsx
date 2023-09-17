@@ -57,6 +57,8 @@
                         </div>
                       </div>
                       <p className="text-gray-400 font-medium">{item.category}</p>
+                      <p className="font-bold">Delivery Estimation</p>
+                      <p className="text-yellow-500 font-bold">5 Working Days</p>
                       <div className="flex justify-between">
                         <div className="font-semibold md:text-lg">${item.price}</div>
                         <div className="flex gap-2">
