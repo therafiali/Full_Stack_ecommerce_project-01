@@ -1,3 +1,4 @@
+  'use client'
   import React, { FC } from "react";
   import Image from "next/image";
   import { RiDeleteBin6Line } from "react-icons/ri";
