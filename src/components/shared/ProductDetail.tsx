@@ -6,14 +6,16 @@ import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../../../sanity/lib/client";
 
 import { useDispatch, useSelector } from "react-redux";
-import add, {addToCart, removeFromCart } from "@/Store/cartSlice";
-import AddToCart from "./AddToCart";
+import {
+  addToCart,
+  removeFromCart,
+} from "@/Store/cartSlice";
 import CartList from "../view/CartList";
 
 const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
   const dispatch = useDispatch();
-  const cartArray = useSelector((state:any)=> state.cart)
-  // console.log(item, "carrt");
+  const cartArray = useSelector((state: any) => state.cart);
+  console.log(cartArray, "carrt");
   const [quantity, setQuantity] = useState(1);
   const [imageForPreviewOfSelected, setImageForPreviewOfSelected] =
     useState<string>(item.image[0]._key);
@@ -106,12 +108,11 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
               </div>
             </div>
             <div className="flex  flex-col lg:flex-row gap-x-8 items-center">
-              {/* <button onClick={() => dispatch(addToCart({name:'rafi',qty:1,category:'male'}))}>add to cart </button> */}
               <button
                 onClick={() =>
                   dispatch(
                     addToCart({
-                      productId:item._id,
+                      productId: item._id,
                       productName: item.productName,
                       category: item.productTypes[0],
                       image: item.image,
@@ -124,21 +125,15 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
                 add to cart
               </button>
 
-              <button onClick={()=>dispatch(removeFromCart(item._id))} >delete cart</button>
-              {/* <AddToCart subitem={item}/> */}
-              {/* <button
-                
-                className="flex items-center text-white bg-gray-900 border border-gray-500 px-4 py-2"
-              >
-              <BsCart2 />
-              &nbsp; &nbsp; Add to Cart
-              </button> */}
-              <div>
+              <button onClick={() => dispatch(removeFromCart(item._id))}>
+                delete cart
+              </button>
 
-              <p className="text-2xl font-semibold">
-                ${item.price}
-                {".00"}
-              </p>
+              <div>
+                <p className="text-2xl font-semibold">
+                  ${item.price}
+                  {".00"}
+                </p>
               </div>
             </div>
           </div>

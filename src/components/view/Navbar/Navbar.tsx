@@ -31,7 +31,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky  top-0 z-50 bg-opacityDownColor backdrop-blur-lg mx-auto max-w-screen-xl px-3 sm:px-10 zero:px-0 med:px-4">
-      <nav className="flex  items-center zero:px-3  px-1  sm:px-2 justify-between py-2 sm:py-4 pb-10  ">
+      <nav className="flex  items-center zero:px-3  px-1  sm:px-2 justify-between py-2 sm:py-4 sm:pb-8  ">
         <div className="flex-shrink-0 ">
           {/* our Logo */}
           <Link href={"/"}>
