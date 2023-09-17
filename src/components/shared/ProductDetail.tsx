@@ -179,7 +179,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
           </div>
         </div>
       </div>
-      <CartList/>
+      {/* <CartList/> */}
     </div>
   );
 };
