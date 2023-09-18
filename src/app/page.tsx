@@ -1,4 +1,4 @@
-import AddToCart from "@/components/shared/AddToCart";
+
 import BASE_PATH_FORAPI from "@/components/shared/BaseUrl";
 import { responseType } from "@/components/utils/productDataAndTypes";
 import Hero from "@/components/view/Hero";
