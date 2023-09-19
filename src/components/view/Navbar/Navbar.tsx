@@ -98,7 +98,23 @@ const Navbar = () => {
           {/* menu for mobile */}
 
           <div onClick={() => setNav(!isNavOpen)}>
-            {isNavOpen ? <GrClose /> : <GiHamburgerMenu size={25} />}
+            {isNavOpen ? <GrClose size={27} /> : <svg
+  stroke="currentColor"
+  fill="currentColor"
+  strokeWidth={0}
+  viewBox="0 0 24 24"
+  color="black"
+  fontSize={27}
+  style={{ color: "black" }}
+  height="1em"
+  width="1em"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g>
+    <path fill="none" d="M0 0h24v24H0z" />
+    <path d="M3 4h18v2H3V4zm6 7h12v2H9v-2zm-6 7h18v2H3v-2z" />
+  </g>
+</svg>}
           </div>
         </div>
       </nav>
@@ -110,13 +126,31 @@ const Navbar = () => {
 export default Navbar;
 
 const NavForMobile = () => {
+  const cartArray = useSelector((state: RootState) => state.cart);
   return (
     <section className="block lg:hidden">
-      <ul>
+      <ul className="h-screen bg-white pt-10">
         {navbarArr.map((item: NavArrayTypes, i: number) => (
           <Expand key={i} item={item} />
         ))}
+        <div className="flex mx-auto justify-center">
+          
+         <div className="relative bg-gray-300 hover:scale-105 rounded-full w-12 h-12  items-center justify-center">
+          {/* cart icon */}
+          <Link href={'/cart'}>
+            <div className="flex mt-3 justify-center">
+              
+          <PiShoppingCartSimpleBold  size={25} />
+            </div>
+          <div className="absolute top-0 right-0 flex items-center justify-center  bg-red-500 rounded-full w-5 h-5 text-white">
+            {cartArray.totalQuantity}
+          </div>
+          </Link>
+        </div>
+        </div>
+         
       </ul>
+     
     </section>
   );
 };

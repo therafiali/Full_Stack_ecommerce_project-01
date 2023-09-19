@@ -67,7 +67,7 @@ const Jwellery = () => {
             </p>
             <div className="text-center">
               <Link href={"/products"}>
-                <button className="mt-8 p-3 text-lg   zero:p-5 zero:text-lg  tracking-widest bg-[#212121] ring-2 ring-heading/70 text-white  w-3/4 llg:w-2/4 font-bold llg:py-2 border-black border-2 shadow-inner hover:bg-[#212121] llg:text-sm">
+                <button className="mt-8 p-2 tracking-wide text-base font-normal   zero:p-4 zero:px-5 zero:text-xl leading-relaxed scroll-m-20   zero:tracking-wider bg-[#212121] ring-2 ring-heading/70 text-white   llg:w-2/4  llg:py-2 border-black border-2 shadow-inner hover:bg-[#212121] llg:text-sm">
                   See All Products
                 </button>
               </Link>

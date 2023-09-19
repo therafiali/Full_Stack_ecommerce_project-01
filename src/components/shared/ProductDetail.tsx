@@ -4,10 +4,9 @@ import { FC, useState } from "react";
 import { imagesType, oneProductType } from "../utils/productDataAndTypes";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../../../sanity/lib/client";
-
+import { BsCart } from 'react-icons/bs';
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "@/Store/cartSlice";
-import CartList from "../view/CartList";
+import { addToCart } from "@/Store/cartSlice";
 
 const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
   const dispatch = useDispatch();
@@ -33,7 +32,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
 
   return (
     <div>
-      <div className="lg:mt-10 grid grid-cols-8 lg:grid-cols-10 gap-x-2 lg:gap-x-0">
+      <div className="mt-6 lg:mt-10 grid grid-cols-8 lg:grid-cols-10 gap-x-2 lg:gap-x-0">
         <div className=" w-full col-span-2 flex justify-center ">
           <div className="space-y-5">
             {item.image.map((items: imagesType, i: number) => (
@@ -68,27 +67,27 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
         <div className="col-span-8 lg:col-span-4">
           <div className="p-6 lg:space-y-8 ">
             <div className="">
-              <h1 className="text-3xl text-gray-700">{item.productName}</h1>
-              <p className="text-pink-600 text-xl font-medium">
-                {item.productTypes[1]}
+              <h1 className="text-2xl text-[#212121]">{item.productName}</h1>
+              <p className="text-gray-400 py-2 text-xl  font-medium tracking-wider">
+                {item.productTypes[0]}
               </p>
             </div>
-            <div className="space-y-2">
-              <p className="text-lg font-semibold text-gray-700">Select Size</p>
-              <div className="flex gap-2 text-pink-600">
+            <div className="space-y-2 pt-4">
+              <p className="text-lg font-semibold text-[#212121]">Select Size</p>
+              <div className="flex gap-x-2 zero:gap-x-4 text-gray-800 ">
                 {item.size.map((subItem: string, index: number) => (
                   <div
                     key={index}
-                    className="hover:shadow-xl font-semibold cursor-pointer rounded-full bg-gray-300 h-6 w-6 text-xs p-1 lg:w-12 lg:h-12 flex justify-center items-center"
+                    className="hover:shadow-xl font-semibold cursor-pointer rounded-full bg-gray-200 h-8 w-8 text-base p-1 lg:w-12 lg:h-12 flex justify-center items-center"
                   >
                     {subItem}
                   </div>
                 ))}
               </div>
             </div>
-            <div className="flex flex-col lg:flex-row space-x-7">
-              <p className="font-semibold text-xl text-gray-800">Quantity:</p>
-              <div className="flex  gap-2 items-center text-lg">
+            <div className="flex flex-row space-x-5 py-6">
+              <p className="font-semibold text-lg text-[#212121]">Quantity:</p>
+              <div className="flex  items-center text-lg gap-x-2">
                 <div
                   onClick={decrementTheQuantity}
                   className="select-none cursor-pointer flex justify-center items-center w-9 h-9 rounded-full bg-gray-200"
@@ -104,8 +103,8 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
                 </div>
               </div>
             </div>
-            <div className="flex mt-2 flex-row gap-x-8 items-center">
-              <button className="text-lg px-1 flex gap-2  zero:text-lg  tracking-widest bg-[#212121] ring-2 ring-heading/70 text-white  font-bold llg:py-2 border-black border-2 shadow-inner hover:bg-[#212121] llg:text-sm"
+            <div className="flex flex-col mt-2 zero:flex-row gap-x-4 items-center  space-y-4 zero:space-y-0">
+              <button className="text-base px-1 flex items-center justify-center gap-2 w-full py-2 zero:text-base zero:px-0  tracking-widest bg-[#212121] ring-2 ring-heading/70 text-white  llg:py-2 border-black border-2 shadow-inner hover:bg-[#212121] llg:text-sm"
                 onClick={() =>
                   dispatch(
                     addToCart({
@@ -119,7 +118,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
                   )
                 }
               >
-                <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.79166 2H1V4H4.2184L6.9872 16.6776H7V17H20V16.7519L22.1932 7.09095L22.5308 6H6.6552L6.08485 3.38852L5.79166 2ZM19.9869 8H7.092L8.62081 15H18.3978L19.9869 8Z" fill="currentColor"></path><path d="M10 22C11.1046 22 12 21.1046 12 20C12 18.8954 11.1046 18 10 18C8.89543 18 8 18.8954 8 20C8 21.1046 8.89543 22 10 22Z" fill="currentColor"></path><path d="M19 20C19 21.1046 18.1046 22 17 22C15.8954 22 15 21.1046 15 20C15 18.8954 15.8954 18 17 18C18.1046 18 19 18.8954 19 20Z" fill="currentColor"></path></svg>
+              <BsCart size={23}/>
                 Add to Cart
               </button>
 
@@ -134,7 +133,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
           </div>
         </div>
       </div>
-      <div className="bg-[#fff] p-1 sm:p-16">
+      <div className="bg-[#fff] p-1 sm:p-16 pt-8 space-y-4">
         <div className="relative border-b-2 flex flex-col  justify-center flex-auto text-justify gap-2  z-2 border-[#c4c4c4]">
           <p className="z-1 text-[#f2f3f7] opacity-[.7] font-extrabold tracking-wider  hidden sm:block sm:text-8xl leading-relaxed">
             Overview
