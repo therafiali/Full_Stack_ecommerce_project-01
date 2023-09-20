@@ -11,53 +11,58 @@ interface typeOfData {
 
 let orignalData: Array<typeOfData> = [
     {
-        price: 'price_1NLM6oGWv7lYUltJ5GnDYwfO',
-        name: 'Pink Fleece Sweatpants',
-        quantity: 1,
-    },
-    {
-        price: 'price_1NLM8bGWv7lYUltJS8C3UtWh',
-        name: 'Brushed Raglan Sweatshirt',
-        quantity: 1,
-    },
-    {
-        price: 'price_1NLMBFGWv7lYUltJUgbOCM7F',
+        price: 'price_1NrWchIkK4WVGRgowLKAecbw',
         name: 'Cameryn Sash Tie Dress',
         quantity: 1,
     },
     {
-        price: 'price_1NLMK3GWv7lYUltJOAdEdaDA',
-        name: 'Imperial Alpaca Hoodie',
+        price: 'price_1NrWcKIkK4WVGRgo918MZ2fN',
+        name: 'Muscle Tank',
         quantity: 1,
     },
     {
-        price: 'price_1NLMM8GWv7lYUltJnKC8hHsJ',
-        name: 'Kids One',
+        price: 'price_1NrWbwIkK4WVGRgonP715Pce',
+        name: 'Brushed Bomber',
         quantity: 1,
     },
     {
-        price: 'price_1NLMO2GWv7lYUltJSuKwqJ5r',
-        name: 'Imperial Alpaca Hoodie Woman',
+        price: 'price_1NrWbNIkK4WVGRgoIJTDcNzE',
+        name: 'Flex Sweatshirt',
         quantity: 1,
     },
     {
-        price: 'price_1NLMPgGWv7lYUltJ3B1ST39E',
+        price: 'price_1NrWatIkK4WVGRgoPILA07wd',
         name: 'Flex Sweatpants',
         quantity: 1,
     },
     {
-        price: 'price_1NLMR4GWv7lYUltJInH1xRm9',
+        price: 'price_1NrWaUIkK4WVGRgoNPIaG3V3',
         name: 'Lite Sweatpants',
         quantity: 1,
     },
     {
-        price: 'price_1NLOOiGWv7lYUltJawy9Sxy7',
-        name: 'Raglan Sweatshirt',
+        price: 'price_1NrWa2IkK4WVGRgo82dLAM5g',
+        name: 'Imperial Alpaca Hoodie',
         quantity: 1,
     },
     {
-        price: 'price_1NLOQ0GWv7lYUltJzyBK3ZyP',
+        price: 'price_1NrWZdIkK4WVGRgo9ImM5DoK',
         name: 'Flex Push Button Bomber',
+        quantity: 1,
+    },
+    {
+        price: 'price_1NrWZDIkK4WVGRgoJFrQE6WK',
+        name: 'Brushed Raglan Sweatshirt',
+        quantity: 1,
+    },
+    {
+        price: 'price_1NrWYbIkK4WVGRgo9ADCrEd6',
+        name: 'Pink Fleece Sweatpants',
+        quantity: 1,
+    },
+    {
+        price: 'price_1NrWWtIkK4WVGRgoC8qHVVBd',
+        name: 'Raglan Sweatshirt',
         quantity: 1,
     },
 ]
