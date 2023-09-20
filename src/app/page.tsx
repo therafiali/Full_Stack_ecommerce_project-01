@@ -19,7 +19,7 @@ async function fetchProductData() {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error fetching data at main page :", error);
+    // console.error("Error fetching data at main page :", error);
     return null; // Or handle the error case according to your needs
   }
 }

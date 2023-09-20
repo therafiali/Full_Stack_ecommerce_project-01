@@ -4,14 +4,14 @@ import { FC, useState } from "react";
 import { imagesType, oneProductType } from "../utils/productDataAndTypes";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "../../../sanity/lib/client";
-import { BsCart } from 'react-icons/bs';
+import { BiCart } from 'react-icons/bi';
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "@/Store/cartSlice";
 
 const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
   const dispatch = useDispatch();
   const cartArray = useSelector((state: any) => state.cart);
-  console.log(cartArray, "carrt");
+  // console.log(cartArray, "carrt");
   const [quantity, setQuantity] = useState(1);
   const [imageForPreviewOfSelected, setImageForPreviewOfSelected] =
     useState<string>(item.image[0]._key);
@@ -25,7 +25,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
   }
 
   function decrementTheQuantity() {
-    if (quantity !== 0) {
+    if (quantity !== 1) {
       setQuantity(quantity - 1);
     }
   }
@@ -65,16 +65,16 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
           </div>
         </div>
         <div className="col-span-8 lg:col-span-4">
-          <div className="p-6 lg:space-y-8 ">
+          <div className="p-6 llg:space-y-8 ">
             <div className="">
               <h1 className="text-2xl text-[#212121]">{item.productName}</h1>
               <p className="text-gray-400 py-2 text-xl  font-medium tracking-wider">
                 {item.productTypes[0]}
               </p>
             </div>
-            <div className="space-y-2 pt-4">
+            <div className="space-y-3 pt-4">
               <p className="text-lg font-semibold text-[#212121]">Select Size</p>
-              <div className="flex gap-x-2 zero:gap-x-4 text-gray-800 ">
+              <div className="flex gap-x-2 w-full zero:gap-x-8 text-gray-800 ">
                 {item.size.map((subItem: string, index: number) => (
                   <div
                     key={index}
@@ -85,7 +85,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
                 ))}
               </div>
             </div>
-            <div className="flex flex-row space-x-5 py-6">
+            <div className="flex flex-row space-x-5 zero:space-x-8 py-6">
               <p className="font-semibold text-lg text-[#212121]">Quantity:</p>
               <div className="flex  items-center text-lg gap-x-2">
                 <div
@@ -104,7 +104,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
               </div>
             </div>
             <div className="flex flex-col mt-2 zero:flex-row gap-x-4 items-center  space-y-4 zero:space-y-0">
-              <button className="text-base px-1 flex items-center justify-center gap-2 w-full py-2 zero:text-base zero:px-0  tracking-widest bg-[#212121] ring-2 ring-heading/70 text-white  llg:py-2 border-black border-2 shadow-inner hover:bg-[#212121] llg:text-sm"
+              <button className="text-base px-2 flex items-center justify-center gap-2 w-full zero:w-5/12 py-2 zero:text-base   tracking-widest bg-[#212121] ring-2 ring-heading/70 text-white  llg:py-2 border-black border-2 shadow-inner hover:bg-[#212121] llg:text-sm"
                 onClick={() =>
                   dispatch(
                     addToCart({
@@ -118,7 +118,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
                   )
                 }
               >
-              <BsCart size={23}/>
+              <BiCart  size={23}/>
                 Add to Cart
               </button>
 
@@ -133,7 +133,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
           </div>
         </div>
       </div>
-      <div className="bg-[#fff] p-1 sm:p-16 pt-8 space-y-4">
+      <div className="bg-[#fff] px-6 pt-8 space-y-4 lg:mt-20">
         <div className="relative border-b-2 flex flex-col  justify-center flex-auto text-justify gap-2  z-2 border-[#c4c4c4]">
           <p className="z-1 text-[#f2f3f7] opacity-[.7] font-extrabold tracking-wider  hidden sm:block sm:text-8xl leading-relaxed">
             Overview
@@ -142,7 +142,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
             Product Information
           </h3>
         </div>
-        <div className="flex flex-col gap-2 md:flex-row mt-4 ">
+        <div className="flex flex-col gap-2 md:flex-row mt-4  lg:px-16">
           <h3 className="text-[#666] basis-1/4  text-base font-extrabold max-w-6xl">
             PRODUCT DETAILS
           </h3>
@@ -156,7 +156,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </div>
-        <div className="flex flex-col gap-y-2 md:flex-row mt-4 ">
+        <div className="flex flex-col gap-y-2 md:flex-row mt-4  lg:px-16">
           <h3 className="text-[#666] basis-1/4  text-base font-extrabold max-w-6xl">
             PRODUCT CARE
           </h3>
