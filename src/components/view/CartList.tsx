@@ -11,6 +11,7 @@ import {
 } from "@/Store/cartSlice";
 import { client } from "../../../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
+import BASE_PATH_FORAPI from "../shared/BaseUrl";
 
 const CartComp: FC = () => {
   const cartArray = useSelector((state: any) => state.cart);
@@ -20,6 +21,14 @@ const CartComp: FC = () => {
 
   function urlFor(source: any) {
     return builder.image(source);
+  }
+
+  function handleProcessCheckout(){
+    console.log('calling')
+    fetch(`${BASE_PATH_FORAPI}/api/checkout_sessions`,{
+      method:"POST",
+      body:JSON.stringify(cartArray)
+    })
   }
 
   return (
@@ -121,7 +130,7 @@ const CartComp: FC = () => {
                 <p className="text-lg font-light">Subtotal:</p>
                 <p>${cartArray.totalAmount}</p>
               </div>
-              <button className="text-white bg-gray-900 border border-gray-500 px-4 py-2 w-full">
+              <button onClick={handleProcessCheckout} className="text-white bg-gray-900 border border-gray-500 px-4 py-2 w-full">
                 Proceed To CheckOut
               </button>
             </div>

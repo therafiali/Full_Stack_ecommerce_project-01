@@ -1,5 +1,6 @@
-import Stripe from "stripe"
+ import Stripe from "stripe"
 import { NextRequest, NextResponse } from "next/server";
+
 
 
 
@@ -67,7 +68,7 @@ let orignalData: Array<typeOfData> = [
     },
 ]
 
-// @ts-ignore
+// // @ts-ignore
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(req: NextRequest) {
@@ -100,6 +101,7 @@ export async function POST(req: NextRequest) {
             success_url: `${req.nextUrl.origin}/?success=true`,
             cancel_url: `${req.nextUrl.origin}/?success=false`
         })
+        console.log(session,'sss')
         return NextResponse.json({ link: session.url });
     } 
     
@@ -108,3 +110,67 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error })
     }
 }
+
+// @ts-ignore
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+
+// export async function POST(req:NextRequest) {
+   
+//     let cartItemsArray = await req.json();
+//     console.log(cartItemsArray)
+// //     //   try {
+//         orignalData.filter((item:typeOfData)=>{
+//             for (let index = 0; index < cartItemsArray.length; index++) {
+//                 const element = cartItemsArray[index];
+//                 console.log(element.productName,item.name,'cccc',element.productName === item.name)
+//         if(element.productName === item.name){
+//             return true
+//         }
+//     }}
+//  )
+// })
+//    let session = await stripe.checkout.sessions.create({
+//         line_items:[
+//             {
+//                 price:'price_1NrWZdIkK4WVGRgo9ImM5DoK',
+//                 quantity:1,
+//             }
+//         ],
+//         mode:"payment",
+//         success_url:`${req.nextUrl.origin}/?success=true`,
+//         cancel_url:`${req.nextUrl.origin}/?success=false`
+//     })
+//     console.log(session,'session')
+//     return NextResponse.json({session})
+//   } catch (error) {
+//     console.log((error as {message:string}).message)
+//     return NextResponse.json({error})
+//   }
+// }
+
+
+
+
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+// export default async function POST(req: NextRequest) {
+//   try {
+//     let session = await stripe.checkout.sessions.create({
+//       line_items: [
+//         {
+//           price: 'price_1NrWZdIkK4WVGRgo9ImM5DoK',
+//           quantity: 1,
+//         },
+//       ],
+//       mode: 'payment',
+//       success_url: `${req.nextUrl.origin}/?success=true`,
+//       cancel_url: `${req.nextUrl.origin}/?success=false`,
+//     });
+//     console.log(session, 'session');
+//     return NextResponse.json({ session });
+//   } catch (error) {
+//     console.log((error as { message: string }).message);
+//     return NextResponse.json({ error });
+//   }
+// }
