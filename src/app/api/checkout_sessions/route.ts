@@ -82,11 +82,19 @@ export async function POST(req: NextRequest) {
         }
       }
     });
-    let line_itemToSend = line_item.map((item: typeOfData) => {
-      return {
-        price: item.price,
-        quantity: item.quantity,
-      };
+    let line_itemToSend:any = line_item.map((item: typeOfData) => {
+for (let index = 0; index < cartItemsArray.length; index++) {
+    const element = cartItemsArray[index];
+    console.log(element,'ele')
+    if (element.productName === item.name) {
+        return{
+            price:item.price,
+            quantity:element.qty
+        }
+    }
+    
+}
+      
     });
     //  console.log(line_itemToSend,'line____')
     // })
