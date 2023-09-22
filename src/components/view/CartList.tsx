@@ -12,6 +12,7 @@ import {
 import { client } from "../../../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import BASE_PATH_FORAPI from "../shared/BaseUrl";
+import Link from "next/link";
 
 const CartComp: FC = () => {
   const cartArray = useSelector((state: any) => state.cart);
@@ -23,12 +24,13 @@ const CartComp: FC = () => {
     return builder.image(source);
   }
 
-  function handleProcessCheckout(){
-    console.log('calling')
-    fetch(`${BASE_PATH_FORAPI}/api/checkout_sessions`,{
+  async function handleProcessCheckout(){
+    let linkOrg:any = await fetch(`${BASE_PATH_FORAPI}/api/checkout_sessions`,{
       method:"POST",
       body:JSON.stringify(cartArray)
     })
+    let {link} = await linkOrg.json()
+    window.location.href = link
   }
 
   return (
