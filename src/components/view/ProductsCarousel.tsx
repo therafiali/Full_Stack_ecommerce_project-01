@@ -1,20 +1,10 @@
 "use client";
 import React, { FC } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
-// import "swiper/css/pagination";
-// import "swiper/css/navigation";
-
-// import './styles.css';
-
-// import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { oneProductType } from "../utils/productDataAndTypes";
 import Card from "../shared/Card";
-
 const SwiperComp: FC<{ ProductData: Array<oneProductType> }> = ({
   ProductData,
 }) => {
@@ -57,8 +47,8 @@ const SwiperComp: FC<{ ProductData: Array<oneProductType> }> = ({
         modules={[Autoplay, Pagination, Navigation]}
       >
         {dataToItrate.map((item: oneProductType, index: number) => (
-          <SwiperSlide className="">
-            <Card key={index + 4} singleProductData={item} />
+          <SwiperSlide key={index}>
+            <Card singleProductData={item} />
           </SwiperSlide>
         ))}
       </Swiper>
