@@ -1,12 +1,13 @@
-
 import BASE_PATH_FORAPI from "@/components/shared/BaseUrl";
 import { responseType } from "@/components/utils/productDataAndTypes";
 import Hero from "@/components/view/Hero";
 import Jwellery from "@/components/view/Jwellery";
 import Newsletter from "@/components/view/Newsletter";
-import ProductCarousel from "@/components/view/ProductCarousel";
+import ProductsCarousel from "@/components/view/ProductsCarousel";
 import Promotions from "@/components/view/Promotions";
+
 import { useSelector } from "react-redux";
+import Swiper from "swiper";
 
 async function fetchProductData() {
   try {
@@ -31,7 +32,7 @@ export default async function Home() {
     <main>
       <Hero />
       <Promotions />
-      <ProductCarousel ProductData={result} />
+      <ProductsCarousel ProductData={result} />
       <Jwellery />
       <Newsletter />
     </main>
