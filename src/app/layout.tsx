@@ -29,9 +29,9 @@ export default function RootLayout({
             <Navbar />
           <Wrapper>
             {children}
-            <Footer />
+            {/* <Footer /> */}
           </Wrapper>
-          <Copyright />
+          {/* <Copyright /> */}
         </Providers>
       </body>
     </html>

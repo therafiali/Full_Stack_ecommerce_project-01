@@ -30,11 +30,11 @@ export default async function Home() {
 
   return (
     <main>
-      <Hero />
+      {/* <Hero />
       <Promotions />
       <ProductsCarousel ProductData={result} />
       <Jwellery />
-      <Newsletter />
+      <Newsletter /> */}
     </main>
   );
 }
