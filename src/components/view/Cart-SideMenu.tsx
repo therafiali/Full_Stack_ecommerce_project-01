@@ -20,8 +20,8 @@ export function CartSideMenu() {
       <DialogTrigger asChild>
         <PiShoppingCartSimpleBold size={25} />
       </DialogTrigger>
-      <div className="relative">
-        <DialogContent className="p-0">
+      <div className="relative ">
+        <DialogContent className="p-0 rounded-none">
           <DialogTitle className="pt-3 px-4">SHOPPING CART</DialogTitle>
           <Scroller />
         </DialogContent>
