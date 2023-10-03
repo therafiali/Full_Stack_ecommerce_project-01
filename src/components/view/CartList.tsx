@@ -43,10 +43,10 @@ const CartComp: FC = () => {
         <div className="flex flex-col lg:justify-between">
           <div className="flex flex-col sm:justify-between gap- w-full">
             {cartArray.items.map((item: any, index: number) => (
-              <div>
+              <div key={index}>
                 <div
                   className="flex flex-col w-full py-2 mt-0  border-gray-800 items-center sm:flex-row gap-5"
-                  key={index}
+                  
                 >
                   <div className="w-4/12">
                     <Image
