@@ -35,6 +35,7 @@ export default async function Home() {
       <ProductsCarousel ProductData={result} />
       <Jwellery />
       <Newsletter /> */}
+
     </main>
   );
 }
