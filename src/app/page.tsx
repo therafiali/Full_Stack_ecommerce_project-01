@@ -6,9 +6,6 @@ import Newsletter from "@/components/view/Newsletter";
 import ProductsCarousel from "@/components/view/ProductsCarousel";
 import Promotions from "@/components/view/Promotions";
 
-import { useSelector } from "react-redux";
-import Swiper from "swiper";
-
 async function fetchProductData() {
   try {
     const response = await fetch(`${BASE_PATH_FORAPI}/api/products`);
@@ -29,12 +26,12 @@ export default async function Home() {
   let { result }: responseType = await fetchProductData();
 
   return (
-    <main>
-      {/* <Hero />
+    <main className="">
+      <Hero />
       <Promotions />
       <ProductsCarousel ProductData={result} />
       <Jwellery />
-      <Newsletter /> */}
+      <Newsletter />
 
     </main>
   );

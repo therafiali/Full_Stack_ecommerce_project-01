@@ -10,6 +10,7 @@ import {
   DialogTitle,
 } from "./dialog";
 import { Button } from "./button";
+import CartList from "../view/CartList";
 
 export function Scroller() {
   const tags = Array.from({ length: 50 }).map(
@@ -19,7 +20,7 @@ export function Scroller() {
     <ScrollArea className="h-screen  pb-44">
       <DialogHeader className="">
         <div className="my-2 px-4 pb-">
-          <Cart />
+          <CartList/>
         </div>
       </DialogHeader>
      

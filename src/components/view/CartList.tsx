@@ -12,7 +12,6 @@ import {
 import { client } from "../../../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import BASE_PATH_FORAPI from "../shared/BaseUrl";
-import Link from "next/link";
 import { Separator } from "../ui/separator";
 
 const CartComp: FC = () => {
@@ -23,18 +22,6 @@ const CartComp: FC = () => {
 
   function urlFor(source: any) {
     return builder.image(source);
-  }
-
-  async function handleProcessCheckout() {
-    let linkOrg: any = await fetch(
-      `${BASE_PATH_FORAPI}/api/checkout_sessions`,
-      {
-        method: "POST",
-        body: JSON.stringify(cartArray),
-      }
-    );
-    let { link } = await linkOrg.json();
-    window.location.href = link;
   }
 
   return (
@@ -123,28 +110,6 @@ const CartComp: FC = () => {
               </div>
             ))}
           </div>
-
-          {/* <div>
-            <div className="basis-1/4 space-y-6 p-2 zero:px-6 mt-12 lg:mt-0 rounded-md bg-slate-100">
-              <h6 className="font-semibold text-xl">Order Summary</h6>
-              <div className="flex justify-between">
-                <p className="text-lg font-light">Quantity:</p>
-                <p className="text-lg font-light">
-                  {cartArray.totalQuantity} Product
-                </p>
-              </div>
-              <div className="flex justify-between">
-                <p className="text-lg font-light">Subtotal:</p>
-                <p>${cartArray.totalAmount}</p>
-              </div>
-              <button
-                onClick={handleProcessCheckout}
-                className="text-white bg-gray-900 border border-gray-500 px-4 py-2 w-full"
-              >
-                Proceed To CheckOut
-              </button>
-            </div>
-          </div> */}
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center py-24">

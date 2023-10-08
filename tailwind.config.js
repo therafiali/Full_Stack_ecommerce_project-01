@@ -8,15 +8,38 @@ module.exports = {
     './src/**/*.{ts,tsx}',
 	],
   theme: {
+    screens: {
+      'zero':"370px",  //for very small devices
+        'one':'455px',// for normal size mobile screen
+        'med':'558px', //for big mobile screen
+        'sm':	'640px'	,
+        'md':	'768px'	,
+        'lg':	'1024px',
+        'llg':'1211px',	
+        'xl':	'1280px',	
+        '2xl':'1536px',
+    },
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      // screens: {
+      //   'zero':"370px",  //for very small devices
+      //   'one':'455px',// for normal size mobile screen
+      //   'med':'558px', //for big mobile screen
+      //   'sm':	'640px'	,
+      //   'md':	'768px'	,
+      //   'lg':	'1024px',
+      //   'llg':'1211px',	
+      //   'xl':	'1280px',	
+      //   '2xl':'1536px',	
+      // },
     },
     extend: {
       colors: {
+        heading: "#212121",
+        greypara: "#666",
+        heropink: "#ffece3",
+        opacityDownColor:'#ffffffba',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
