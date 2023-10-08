@@ -83,9 +83,9 @@ const CartComp: FC = () => {
                         <div className="font-semibold md:text-lg">
                           ${item.price * item.qty}.00
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex items-center gap-2 border border-black ">
                           <button
-                            className="select-none cursor-pointer flex justify-center items-center w-9 h-9 rounded-full bg-gray-200"
+                            className="select-none cursor-pointer font-bold flex justify-center items-center w-9 h-9 "
                             onClick={() =>
                               dispatch(
                                 subtractCart({ productId: item.productId })
@@ -94,7 +94,7 @@ const CartComp: FC = () => {
                           >
                             -
                           </button>
-                          <p>{item.qty}</p>
+                          <p className="font-bold">{item.qty}</p>
                           <button
                             onClick={() =>
                               dispatch(
@@ -108,7 +108,7 @@ const CartComp: FC = () => {
                                 })
                               )
                             }
-                            className="select-none cursor-pointer flex justify-center items-center w-9 h-9 rounded-full border border-gray-800"
+                            className="select-none cursor-pointer font-bold flex justify-center items-center w-9 h-9"
                           >
                             +
                           </button>
