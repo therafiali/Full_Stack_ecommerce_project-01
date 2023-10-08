@@ -16,12 +16,13 @@ export function Scroller() {
     (_, i, a) => `v1.2.0-beta.${a.length - i}`
   );
   return (
-    <ScrollArea className="h-screen">
+    <ScrollArea className="h-screen  pb-44">
       <DialogHeader className="">
-        <div className="my-2 px-4 pb-20">
+        <div className="my-2 px-4 pb-">
           <Cart />
         </div>
       </DialogHeader>
+     
     </ScrollArea>
   );
 }

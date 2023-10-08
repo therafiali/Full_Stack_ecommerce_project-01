@@ -81,7 +81,7 @@ const CartComp: FC = () => {
                       </p>
                       <div className="flex justify-between">
                         <div className="font-semibold md:text-lg">
-                          ${item.price * item.qty}
+                          ${item.price * item.qty}.00
                         </div>
                         <div className="flex gap-2">
                           <button
