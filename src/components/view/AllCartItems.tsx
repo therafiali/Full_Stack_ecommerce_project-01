@@ -35,7 +35,6 @@ const AllCartItems: FC = () => {
     return builder.image(source);
   }
   const [confirm, setconfirm] = useState(false);
-  console.log(confirm, "dhvg");
 
   async function handleProcessCheckout() {
     let linkOrg: any = await fetch(
@@ -53,11 +52,11 @@ const AllCartItems: FC = () => {
     <div className="mx-auto">
       {/* heading of cart page */}
       {cartArray.items.length > 0 && (
-        <div className="py-14  bg-black space-y-6">
-          <h1 className="text-5xl font-medium text-white text-center leading-relaxed scroll-m-20 tracking-wider ">
+        <div className="py-6 zero:py-14  bg-black space-y-6">
+          <h1 className="text-lg zero:text-5xl font-medium text-white text-center leading-relaxed scroll-m-20 tracking-wider ">
             Shopping Cart
           </h1>
-          <p className="text-white text-center text-lg leading-relaxed scroll-m-20 tracking-wide">
+          <p className="text-sm text-white text-center zero:text-lg leading-relaxed scroll-m-20 zero:tracking-wide">
             Home &nbsp; &#62; &nbsp;{" "}
             <span className="text-greennn">Shopping Cart</span>{" "}
           </p>
@@ -65,27 +64,25 @@ const AllCartItems: FC = () => {
       )}
       {/* cart data table */}
       {cartArray.items.length > 0 ? (
-        <div className="flex flex-col lg:flex-row lg:justify-between mt-8 gap-x-4">
-          <div className="flex flex-col basis-3/4 justify-center sm:justify-between gap-5 w-full">
-            <Table className="md:border border-black">
+        <div className="flex flex-col lg:flex-row lg:justify-between mt-8 gap-x-4 ">
+          <div className="flex flex-col basis-3/4 justify-center sm:justify-between gap-5 w-full ">
+            <Table className="md:border border-black ">
               <TableHeader className="border border-black bg-[#efefef]  ">
                 <TableRow className="  hidden md:block ">
                   <div className="grid grid-cols-11">
-                    <TableHead className="w-full border border-black col-span- bg-red-500">
-                      v
-                    </TableHead>
-                    <TableHead className="border border-black text-heading  col-span-5  bg-yellow-500">
+                    <TableHead className="w-full border border-black col-span- "></TableHead>
+                    <TableHead className="border border-black text-heading  flex items-center justify-center  col-span-5">
                       PRODUCT
                     </TableHead>
-                    <div className="col-span-5  bg-blue-500 w-full">
+                    <div className="col-span-5  w-full">
                       <div className="grid grid-cols-7 ">
-                        <TableHead className="border border-black text-heading col-span-2 ">
+                        <TableHead className="border flex items-center justify-center border-black text-heading col-span-2 ">
                           PRICE
                         </TableHead>
-                        <TableHead className="border border-black text-heading  col-span-3">
+                        <TableHead className="border  flex items-center justify-center border-black text-heading  col-span-3">
                           QUANTITY
                         </TableHead>
-                        <TableHead className="text-right border border-black text-heading  col-span-2">
+                        <TableHead className="text-right border border-black text-heading  flex items-center justify-center  col-span-2">
                           TOTAL
                         </TableHead>
                       </div>
@@ -93,26 +90,26 @@ const AllCartItems: FC = () => {
                   </div>
                 </TableRow>
               </TableHeader>
-              <TableBody className=" border border-red-500 ">
+              <TableBody className=" ">
                 {cartArray.items.map((item: any, index: number) => (
                   <TableRow className=" " key={index}>
-                    <div className="grid grid-cols-3 md:grid-cols-11 ">
-                      <TableCell className="font-medium md:border border-black  hidden md:block p-0 md:col-span-1 bg-purple-700  ">
+                    <div className="grid grid-cols-3 md:grid-cols-11 space-y-6 pb-2 border-b-2 border-greennn/90 md:border-none md:space-y-0 md:pb-0">
+                      <TableCell className="font-medium border border-black  hidden md:block p-0 md:col-span-1 md:m-auto md:w-full md:h-full md:border md:border-black">
                         {" "}
                         <div
                           onClick={() =>
                             dispatch(delItem({ productId: item.productId }))
                           }
-                          className="cursor-pointer"
+                          className="cursor-pointer flex justify-center items-center h-full"
                         >
                           <RiDeleteBin6Line size={28} />
                         </div>
                       </TableCell>
-                      <TableCell className="md:border p-0 col-span-1 border-black md:col-span-5  bg-yellow-500">
-                        <div className="flex justify-center items-center">
-                          <div className="w-40  md:basis-1/4 ">
+                      <TableCell className=" p-0 col-span-1 md:border border-black md:col-span-5 ">
+                        <div className="flex justify-center items-center space-x-1 ">
+                          <div className="w-40 md:basis-1/4 flex items-end justify-center ">
                             <Image
-                              className="h-44 md:h-full w-full"
+                              className="h-44 w-full md:h-full"
                               alt={item.productName}
                               src={urlFor(item.image[0])
                                 .width(1000)
@@ -122,52 +119,55 @@ const AllCartItems: FC = () => {
                               height={1000}
                             />
                           </div>
-                          <div className="hidden md:block space-y-1 md:space-y-3 w-full ">
+                          <div className="hidden md:block space-y-1 md:space-y-1 w-full ">
                             <div className="flex w-full">
-                              <h2 className="md:text-2xl font-light text-gray-700 w-full ">
+                              <h2 className="md:text-lg font-semibold text-gray-700 w-full ">
                                 {item.productName}
+
+                      
                               </h2>
                             </div>
-                            <p className="text-gray-400 font-medium">
+                            <p className="text-gray-500 font-medium">
                               {item.category}
                             </p>
                           </div>
                         </div>
                       </TableCell>
-                      <div className="md:col-span-5 bg-blue-500 flex flex-col items-start   space-x-1 zero:px-2 med:px-0 md:flex-row col-span-2">
-                        
-                        <div className="flex flex-col md:grid grid-cols-7 w-full bg-red-500 space-y-3 ">
-                          <TableCell className="md:hidden p-0 md:border border-black  flex justify-between w-full ">
-                          <div className="space-y-1 md:space-y-3 w-full flex flex-col justify-between">
-                            <div className="flex w-full items-center border-dashed border-greypara border-b ">
-                              <h2 className="md:text-2xl font-light text-gray-700 w-full ">
-                                {item.productName}
-                              </h2>
-                              <div
-                                onClick={() =>
-                                  dispatch(
-                                    delItem({ productId: item.productId })
-                                  )
-                                }
-                                className="cursor-pointer"
-                              >
-                                <RiDeleteBin6Line size={28} />
+                      <div className="md:col-span-5  flex flex-col items-start   space-x-1 zero:px-2 med:px-0 md:flex-row col-span-2 md:items-center">
+                        <div className="flex flex-col md:grid grid-cols-7 w-full  space-y-3 md:space-y-0  md:h-full ">
+                          <TableCell className="md:hidden p-0 md:border border-black  flex justify-between w-full md:border-none ">
+                            <div className="space-y-1 md:space-y-3 w-full flex flex-col justify-between">
+                              <div className="flex w-full items-center border-dashed border-greypara border-b ">
+                                <h2 className="text-base font-semibold text-gray-700 w-full ">
+                                  {item.productName}
+                                </h2>
+                                <div
+                                  onClick={() =>
+                                    dispatch(
+                                      delItem({ productId: item.productId })
+                                    )
+                                  }
+                                  className="cursor-pointer"
+                                >
+                                  <RiDeleteBin6Line size={28} />
+                                </div>
                               </div>
-                            </div>
-                            <p className="text-gray-400 font-medium   border-dashed border-greypara border-b ">
-                              {item.category}
-                            </p>
-                          </div>
-                        </TableCell>
-                          <TableCell className="md:bg-yellow-400 md:border p-0 border-black col-span-1 w-full md:col-span-2 ">
-                            <div className="flex justify-between w-full border-dashed border-greypara border-b ">
-                              <span className="md:hidden">Price</span>
-                              <span>${item.price}.00</span>
+                              <p className="text-gray-500 font-medium   border-dashed border-greypara border-b ">
+                                {item.category}
+                              </p>
                             </div>
                           </TableCell>
-                          <TableCell className="md:bg-orange-400 md:border p-0 border-black col-span-1 w-full  md:col-span-3 ">
-                            <div className="flex pb-2 gap-x-2 justify-between items-center border-dashed border-greypara border-b ">
-                              <span className="md:hidden">Quantity:</span>
+                          <TableCell className=" p-0 border-black col-span-1 w-full md:col-span-2  h-full  md:flex md:items-center md:justify-center  md:text-center  md:border md:border-black md:">
+                            <div className="flex justify-between w-full border-dashed border-greypara border-b md:border-none   md:w-auto">
+                              <span className="md:hidden">Price</span>
+                              <span className="font-medium ">
+                                ${item.price}.00
+                              </span>
+                            </div>
+                          </TableCell>
+                          <TableCell className="  p-0 border-black col-span-1 w-full  md:col-span-3  md:flex md:justify-center md:items-center md:mt-3 md:border md:border-black">
+                            <div className="md:border-none flex flex-wrap pb-2 gap-x-2 justify-between items-center border-dashed border-greypara border-b md:pb-0">
+                              <span className="md:hidden pb-2 zero:pb-0">Quantity:</span>
                               <div className="flex items-center gap-2 border border-black ">
                                 <button
                                   className="select-none cursor-pointer font-bold flex justify-center items-center w-9 h-9 "
@@ -202,10 +202,12 @@ const AllCartItems: FC = () => {
                               </div>
                             </div>
                           </TableCell>
-                          <TableCell className="md:bg-indigo-950 text-right p-0 md:border border-black col-span-1 w-full  md:col-span-2">
-                            <div className=" flex justify-between items-center  border-dashed border-greypara border-b ">
+                          <TableCell className=" text-right p-0  border-black col-span-1 w-full  md:col-span-2  md:flex md:justify-center md:items-center md:border md:border-black">
+                            <div className=" flex justify-between items-center  border-dashed border-greypara border-b md:border-none">
                               <span className="md:hidden">Total</span>
-                              <span>${item.price * item.qty}.00</span>
+                              <span className="font-semibold">
+                                ${item.price * item.qty}.00
+                              </span>
                             </div>
                           </TableCell>
                         </div>
