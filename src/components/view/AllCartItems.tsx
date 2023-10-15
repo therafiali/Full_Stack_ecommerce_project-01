@@ -68,28 +68,36 @@ const AllCartItems: FC = () => {
         <div className="flex flex-col lg:flex-row lg:justify-between mt-8 gap-x-4">
           <div className="flex flex-col basis-3/4 justify-center sm:justify-between gap-5 w-full">
             <Table className="md:border border-black">
-              <TableHeader className="border border-black bg-[#efefef] ">
-                <TableRow className="  hidden md:block">
-                  <TableHead className="w-[20px] border border-black"></TableHead>
-                  <TableHead className="border border-black text-heading">
-                    PRODUCT
-                  </TableHead>
-                  <TableHead className="border border-black text-heading">
-                    PRICE
-                  </TableHead>
-                  <TableHead className="border border-black text-heading">
-                    QUANTITY
-                  </TableHead>
-                  <TableHead className="text-right border border-black text-heading">
-                    TOTAL
-                  </TableHead>
+              <TableHeader className="border border-black bg-[#efefef]  ">
+                <TableRow className="  hidden md:block ">
+                  <div className="grid grid-cols-11">
+                    <TableHead className="w-full border border-black col-span- bg-red-500">
+                      v
+                    </TableHead>
+                    <TableHead className="border border-black text-heading  col-span-5  bg-yellow-500">
+                      PRODUCT
+                    </TableHead>
+                    <div className="col-span-5  bg-blue-500 w-full">
+                      <div className="grid grid-cols-7 ">
+                        <TableHead className="border border-black text-heading col-span-2 ">
+                          PRICE
+                        </TableHead>
+                        <TableHead className="border border-black text-heading  col-span-3">
+                          QUANTITY
+                        </TableHead>
+                        <TableHead className="text-right border border-black text-heading  col-span-2">
+                          TOTAL
+                        </TableHead>
+                      </div>
+                    </div>
+                  </div>
                 </TableRow>
               </TableHeader>
-              <TableBody className=" ">
+              <TableBody className=" border border-red-500 ">
                 {cartArray.items.map((item: any, index: number) => (
                   <TableRow className=" " key={index}>
-                    <div className="grid grid-cols-3 ">
-                      <TableCell className="font-medium md:border border-black  hidden md:block p-0">
+                    <div className="grid grid-cols-3 md:grid-cols-11 ">
+                      <TableCell className="font-medium md:border border-black  hidden md:block p-0 md:col-span-1 bg-purple-700  ">
                         {" "}
                         <div
                           onClick={() =>
@@ -100,7 +108,7 @@ const AllCartItems: FC = () => {
                           <RiDeleteBin6Line size={28} />
                         </div>
                       </TableCell>
-                      <TableCell className="md:border p-0 border-black col-span-1 row-span-1 bg-yellow-500">
+                      <TableCell className="md:border p-0 col-span-1 border-black md:col-span-5  bg-yellow-500">
                         <div className="flex justify-center items-center">
                           <div className="w-40  md:basis-1/4 ">
                             <Image
@@ -126,8 +134,10 @@ const AllCartItems: FC = () => {
                           </div>
                         </div>
                       </TableCell>
-                      <div className="col-span-2 bg-blue-500 flex flex-col items-start space-y-2 px-1 zero:px-2 med:px-0">
-                        <TableCell className="md:hidden p-0 md:border border-black col-span-1 flex justify-between w-full">
+                      <div className="md:col-span-5 bg-blue-500 flex flex-col items-start   space-x-1 zero:px-2 med:px-0 md:flex-row col-span-2">
+                        
+                        <div className="flex flex-col md:grid grid-cols-7 w-full bg-red-500 space-y-3 ">
+                          <TableCell className="md:hidden p-0 md:border border-black  flex justify-between w-full ">
                           <div className="space-y-1 md:space-y-3 w-full flex flex-col justify-between">
                             <div className="flex w-full items-center border-dashed border-greypara border-b ">
                               <h2 className="md:text-2xl font-light text-gray-700 w-full ">
@@ -149,53 +159,56 @@ const AllCartItems: FC = () => {
                             </p>
                           </div>
                         </TableCell>
-                        <TableCell className="md:border p-0 border-black col-span-1 w-full ">
-                          <div className="flex justify-between w-full border-dashed border-greypara border-b   ">
-                            <span className="md:hidden">Price</span>
-                            <span>${item.price}.00</span>
-                          </div>
-                        </TableCell>
-                        <TableCell className="md:border p-0 border-black col-span-1 w-full  ">
-                          <div className="flex pb-2 gap-x-2 justify-between items-center border-dashed border-greypara border-b ">
-                            <span className="md:hidden">Quantity:</span>
-                            <div className="flex items-center gap-2 border border-black ">
-                              <button
-                                className="select-none cursor-pointer font-bold flex justify-center items-center w-9 h-9 "
-                                onClick={() =>
-                                  dispatch(
-                                    subtractCart({ productId: item.productId })
-                                  )
-                                }
-                              >
-                                -
-                              </button>
-                              <p className="font-bold">{item.qty}</p>
-                              <button
-                                onClick={() =>
-                                  dispatch(
-                                    addCart({
-                                      productId: item.productId,
-                                      productName: item.productName,
-                                      category: item.category,
-                                      image: item.image, // Make sure this is an appropriate image object
-                                      price: item.price,
-                                      qty: item.qty + 1, // Increment quantity by 1
-                                    })
-                                  )
-                                }
-                                className="select-none cursor-pointer font-bold flex justify-center items-center w-9 h-9"
-                              >
-                                +
-                              </button>
+                          <TableCell className="md:bg-yellow-400 md:border p-0 border-black col-span-1 w-full md:col-span-2 ">
+                            <div className="flex justify-between w-full border-dashed border-greypara border-b ">
+                              <span className="md:hidden">Price</span>
+                              <span>${item.price}.00</span>
                             </div>
-                          </div>
-                        </TableCell>
-                        <TableCell className="text-right p-0 md:border border-black col-span-1 w-full">
-                          <div className=" flex justify-between items-center  border-dashed border-greypara border-b ">
-                            <span className="md:hidden">Total</span>
-                            <span>${item.price * item.qty}.00</span>
-                          </div>
-                        </TableCell>
+                          </TableCell>
+                          <TableCell className="md:bg-orange-400 md:border p-0 border-black col-span-1 w-full  md:col-span-3 ">
+                            <div className="flex pb-2 gap-x-2 justify-between items-center border-dashed border-greypara border-b ">
+                              <span className="md:hidden">Quantity:</span>
+                              <div className="flex items-center gap-2 border border-black ">
+                                <button
+                                  className="select-none cursor-pointer font-bold flex justify-center items-center w-9 h-9 "
+                                  onClick={() =>
+                                    dispatch(
+                                      subtractCart({
+                                        productId: item.productId,
+                                      })
+                                    )
+                                  }
+                                >
+                                  -
+                                </button>
+                                <p className="font-bold">{item.qty}</p>
+                                <button
+                                  onClick={() =>
+                                    dispatch(
+                                      addCart({
+                                        productId: item.productId,
+                                        productName: item.productName,
+                                        category: item.category,
+                                        image: item.image, // Make sure this is an appropriate image object
+                                        price: item.price,
+                                        qty: item.qty + 1, // Increment quantity by 1
+                                      })
+                                    )
+                                  }
+                                  className="select-none cursor-pointer font-bold flex justify-center items-center w-9 h-9"
+                                >
+                                  +
+                                </button>
+                              </div>
+                            </div>
+                          </TableCell>
+                          <TableCell className="md:bg-indigo-950 text-right p-0 md:border border-black col-span-1 w-full  md:col-span-2">
+                            <div className=" flex justify-between items-center  border-dashed border-greypara border-b ">
+                              <span className="md:hidden">Total</span>
+                              <span>${item.price * item.qty}.00</span>
+                            </div>
+                          </TableCell>
+                        </div>
                       </div>
                     </div>
                   </TableRow>
