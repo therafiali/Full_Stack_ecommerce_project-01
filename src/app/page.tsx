@@ -1,4 +1,5 @@
 import BASE_PATH_FORAPI from "@/components/shared/BaseUrl";
+import GoToTop, { Wrapper } from "@/components/shared/GoToTop";
 import { responseType } from "@/components/utils/productDataAndTypes";
 import Hero from "@/components/view/Hero";
 import Jwellery from "@/components/view/Jwellery";
@@ -33,7 +34,9 @@ export default async function Home() {
       <Jwellery />
       <Newsletter /> */}
 
-
+    
+        <GoToTop />
+  
     </main>
   );
 }

@@ -1,10 +1,30 @@
-'use client'
+"use client";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import UP from "./icons/UP";
 
 const GoToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isScroll, setIsScroll] = useState(0);
+
+  useEffect(() => {
+    function handleScroll() {
+      let pos = document.documentElement.scrollTop;
+      let calcHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      let scrollValue = Math.round((pos * 100) / calcHeight);
+      setIsScroll(scrollValue);
+    }
+
+    // Attach the event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const goToBtn = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -30,10 +50,17 @@ const GoToTop = () => {
   return (
     <Wrapper>
       {isVisible && (
-        <div className="top-btn " onClick={goToBtn}>
-            
-          <div className="top-btn--icon text-black ">
-            <UP/>
+        <div
+          className={`top-btn border-2  ${
+            isScroll >= 20 ? "border-t-black" : ""
+          }  ${isScroll >= 40 ? "border-r-black" : ""}  ${
+            isScroll >= 60 ? "border-b-black" : ""
+          }  ${isScroll >= 80 ? "border-l-black" : ""}	`}
+          onClick={goToBtn}
+        >
+          <div className="top-btn--icon text-black">
+            <UP />
+            {/* {isScroll} */}
           </div>
         </div>
       )}
@@ -41,13 +68,14 @@ const GoToTop = () => {
   );
 };
 
-const Wrapper = styled.section`
+export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 
   .top-btn {
+    
     font-size: 2.4rem;
     width: 3rem;
     height: 3rem;
@@ -78,7 +106,50 @@ const Wrapper = styled.section`
       }
     }
   }
+  body {
+    background: #121212;
+  }
+  
+  $spinner-width: 8px;
+  $spinner-color: #7D5195;
+  
 
+  .spinner {
+    border-width: 8px;
+    border-style: solid;
+    border-color: #7D5195 #7D5195 #7D5195 transparent;
+    width: 100px;
+    height: 0px;
+    border-radius: 50%;
+    animation: spin 1.5s infinite;
+    position: relative;
+    
+    margin: 6em auto;
+    
+    &:before, &:after {
+      content="";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $spinner-color;
+      position: absolute;
+      left: 8px;
+    }
+    
+    &:before {
+      top: 8px;
+    }
+    
+    &:after {
+      bottom: 8px;
+    }
+  }
+  
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
 `;
 
