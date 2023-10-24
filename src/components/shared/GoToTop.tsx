@@ -2,10 +2,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import UP from "./icons/UP";
+import {usePathname} from 'next/navigation'
 
 const GoToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isScroll, setIsScroll] = useState(0);
+  const pathname=usePathname()
 
   useEffect(() => {
     function handleScroll() {
@@ -36,6 +38,8 @@ const GoToTop = () => {
       document.body.scrollTop || document.documentElement.scrollTop;
 
     if (winScroll > heightToHidden) {
+
+      
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -46,9 +50,11 @@ const GoToTop = () => {
     window.addEventListener("scroll", listenToScroll);
     return () => window.removeEventListener("scroll", listenToScroll);
   }, []);
+  // setIsVisible(false)
 
   return (
     <Wrapper>
+      
       {isVisible && (
         <div
           className={`top-btn border-2  ${
