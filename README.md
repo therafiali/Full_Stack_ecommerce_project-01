@@ -15,7 +15,7 @@
   - Shadcn UI library for UI Design.
 
 ### Watch Youtube Video:
-[![Watch the video](https://i9.ytimg.com/vi_webp/RsmQQ9ggOZc/mqdefault.webp?sqp=CNT86awG&rs=AOn4CLBGfm0TO2zeEK6TOwEbLJkK4_1ExA)](https://youtu.be/RsmQQ9ggOZc)
+[![Watch the video](https://i.ytimg.com/an_webp/RsmQQ9ggOZc/mqdefault_6s.webp?du=3000&sqp=CPvaoq0G&rs=AOn4CLA8wTcpeVvIPuidx5oq8HXQ3-mVaA)](https://youtu.be/RsmQQ9ggOZc)
 
 
 
